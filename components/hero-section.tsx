@@ -19,22 +19,34 @@ const techStack = [
 const pillClass =
     "rounded-full border border-gray-300 bg-white px-3 py-1 text-[12px] text-gray-700"
 
+const introLines = [
+    "깊이 있는 역량은 넓은 시야에서 시작된다고 믿습니다.",
+    "새로운 기술과 다양한 문제 영역을 꾸준히 탐구하며 성장하고 있습니다.",
+    "문제의 본질을 정확히 짚어내고 해결하는 것에 집중합니다.",
+]
+
 export function HeroSection() {
     return (
         <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-8 lg:gap-8 lg:py-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10">
-                <div className="flex max-w-2xl flex-col gap-3">
+                <div className="flex max-w-2xl flex-col gap-4">
                     <p className="text-[14px] font-medium uppercase tracking-wider text-gray-500">
                         Frontend Developer
                     </p>
                     <h1 className="text-[28px] font-bold leading-[1.4] tracking-tight text-black sm:text-[30px]">
                         프론트엔드 개발자 원민관입니다.
                     </h1>
-                    <p className="text-[17px] leading-[1.65] text-gray-600">
-                        깊이 있는 역량은 넓은 시야에서 시작된다는 믿음으로, 새로운 기술과
-                        다양한 문제 영역을 꾸준히 탐구하며 성장하고 있습니다. 문제의 본질을
-                        정확히 짚어내고 해결하는 것에 집중합니다.
-                    </p>
+                    <ul className="mt-4 flex flex-col gap-2 text-[17px] leading-[1.65] text-gray-600">
+                        {introLines.map((line) => (
+                            <li key={line} className="flex gap-2.5">
+                                <span
+                                    className="mt-[0.65em] size-1 shrink-0 rounded-full bg-black"
+                                    aria-hidden
+                                />
+                                <span>{line}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <div className="flex justify-center lg:justify-end">
