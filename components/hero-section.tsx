@@ -27,7 +27,7 @@ const introLines = [
 
 export function HeroSection() {
     return (
-        <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-8 lg:gap-8 lg:py-10">
+        <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 border-b border-gray-400 px-6 py-8 lg:gap-8 lg:py-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10">
                 <div className="flex max-w-2xl flex-col gap-4">
                     <p className="text-[14px] font-medium uppercase tracking-wider text-gray-500">
@@ -63,7 +63,7 @@ export function HeroSection() {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4 border-t border-gray-100 pt-5">
+            <div className="flex flex-col gap-4 border-t border-gray-300 pt-5">
                 <InfoItem
                     icon={<GraduationCap className="size-[18px]" strokeWidth={1.75} />}
                     label="Education"

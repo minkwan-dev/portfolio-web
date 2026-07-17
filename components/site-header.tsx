@@ -11,7 +11,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ active }: SiteHeaderProps) {
     return (
-        <header className="w-full border-b border-gray-200">
+        <header className="w-full border-b border-gray-300">
             <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
                 <Link
                     href="/"
