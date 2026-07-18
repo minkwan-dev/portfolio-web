@@ -16,7 +16,7 @@ export function PostCard({ post }: PostCardProps) {
     return (
         <Link
             href={`/blog/${post.urlSlug}`}
-            className="group flex flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition-colors hover:border-gray-300 hover:bg-gray-50/50"
+            className="group flex h-full flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition-colors hover:border-gray-300 hover:bg-gray-50/50"
         >
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-50">
                 <Image
@@ -29,12 +29,12 @@ export function PostCard({ post }: PostCardProps) {
                 />
             </div>
 
-            <div className="flex flex-col gap-2.5">
-                <h3 className="line-clamp-2 text-[15px] font-bold leading-snug text-black lg:text-[16px]">
+            <div className="flex flex-1 flex-col gap-2.5">
+                <h3 className="line-clamp-2 min-h-[2.75rem] text-[15px] font-bold leading-snug text-black lg:min-h-[3rem] lg:text-[16px]">
                     {post.title}
                 </h3>
 
-                <div className="flex items-center justify-between gap-2 text-sm">
+                <div className="mt-auto flex items-center justify-between gap-2 text-sm">
                     <span className="text-gray-400">
                         {formatPostDate(post.releasedAt)}
                     </span>
