@@ -8,6 +8,7 @@ const techStack = [
     "React",
     "TypeScript",
     "Next.js",
+    "Tanstack Query",
     "Tailwind",
     "Nest.js",
     "MySQL",
