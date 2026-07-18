@@ -30,11 +30,11 @@ export function FeaturedPosts() {
     const rows = chunkByRows(data)
 
     return (
-        <section className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 pb-12 pt-2">
+        <section className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pb-16 pt-6">
             {rows.map((row, rowIndex) => (
                 <div
                     key={rowIndex}
-                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                    className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-4"
                 >
                     {row.map((post) => (
                         <PostCard key={post.id} post={post} />

@@ -16,45 +16,34 @@ export function PostCard({ post }: PostCardProps) {
     return (
         <Link
             href={`/blog/${post.urlSlug}`}
-            className="group flex flex-col gap-4 rounded-2xl bg-gray-50 p-5 transition-colors hover:bg-gray-100/80"
+            className="group flex flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition-colors hover:border-gray-300 hover:bg-gray-50/50"
         >
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-white">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-gray-50">
                 <Image
                     src={thumbnailSrc}
                     alt={post.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     unoptimized={!isFallback}
                 />
             </div>
 
-            <div className="flex flex-col gap-3">
-                <h3 className="line-clamp-2 text-[17px] font-bold leading-snug text-black">
+            <div className="flex flex-col gap-2.5">
+                <h3 className="line-clamp-2 text-[15px] font-bold leading-snug text-black lg:text-[16px]">
                     {post.title}
                 </h3>
 
-                <div className="flex items-center gap-2 text-sm">
-                    <div className="relative size-6 shrink-0 overflow-hidden rounded-full bg-black">
-                        <Image
-                            src="/profile.jpg"
-                            alt="원민관"
-                            fill
-                            sizes="24px"
-                            className="object-cover grayscale"
-                        />
-                    </div>
-                    <span className="font-medium text-black">원민관</span>
+                <div className="flex items-center justify-between gap-2 text-sm">
                     <span className="text-gray-400">
                         {formatPostDate(post.releasedAt)}
                     </span>
+                    {primaryTag ? (
+                        <span className="shrink-0 rounded-md border border-gray-200 px-2 py-0.5 text-xs text-gray-600">
+                            {primaryTag}
+                        </span>
+                    ) : null}
                 </div>
-
-                {primaryTag ? (
-                    <span className="w-fit rounded-md border border-gray-200 bg-white px-2 py-0.5 text-xs text-gray-600">
-                        {primaryTag}
-                    </span>
-                ) : null}
             </div>
         </Link>
     )
