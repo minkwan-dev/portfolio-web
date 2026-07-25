@@ -1,7 +1,7 @@
 "use client"
 
 import { FeaturedPostsHeader } from "@/components/home/featured-posts-header"
-import { PostCard } from "@/components/post-card"
+import { PostCard } from "@/components/blog/post-card"
 import { useMainPostsQuery } from "@/hooks/api/use-posts"
 import type { PostListItem } from "@/lib/types/post"
 
