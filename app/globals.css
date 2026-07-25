@@ -1,2 +1,22 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@keyframes newsletter-float {
+    0%,
+    100% {
+        transform: rotateX(16deg) rotateY(-22deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateX(16deg) rotateY(-22deg) translateY(-8px);
+    }
+}
+
+.newsletter-envelope-scene {
+    perspective: 900px;
+}
+
+.newsletter-envelope-float {
+    animation: newsletter-float 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}

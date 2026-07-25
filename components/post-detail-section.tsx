@@ -1,27 +1,69 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import { AsyncBoundary } from "@/components/async-boundary"
 import { CommentForm } from "@/components/comment-form"
 import { CommentList } from "@/components/comment-list"
+import { CommentSectionHeader } from "@/components/comment-section-header"
+import { NewsletterSubscribeModal } from "@/components/newsletter-subscribe-modal"
 import { PostDetailContent } from "@/components/post-detail-content"
 import { PostDetailSkeleton } from "@/components/post-detail-skeleton"
+import { isNewsletterModalDismissed } from "@/lib/newsletter-modal-storage"
+import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/page-layout"
 
 type PostDetailSectionProps = {
   slug: string
 }
 
 export function PostDetailSection({ slug }: PostDetailSectionProps) {
+    const sentinelRef = useRef<HTMLDivElement>(null)
+    const [showNewsletter, setShowNewsletter] = useState(false)
+
+    useEffect(() => {
+        if (isNewsletterModalDismissed()) return
+
+        const target = sentinelRef.current
+        if (!target) return
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShowNewsletter(true)
+                }
+            },
+            { threshold: 0.2 },
+        )
+
+        observer.observe(target)
+        return () => observer.disconnect()
+    }, [])
+
     return (
-    <main className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-6 py-10">
-        <AsyncBoundary fallback={<PostDetailSkeleton />}>
-            <PostDetailContent slug={slug} />
-        </AsyncBoundary>
-        
-        <section className="flex flex-col gap-6 border-t border-gray-200 pt-8">
-            <h2 className="text-lg font-semibold text-black">댓글</h2>
-            <CommentForm postSlug={slug} />
-            <CommentList postSlug={slug} />
-        </section>
-    </main>
+    <>
+        <main className={`flex flex-col gap-10 py-10 ${POST_DETAIL_CONTAINER_CLASS}`}>
+            <AsyncBoundary fallback={<PostDetailSkeleton />}>
+                <PostDetailContent slug={slug} />
+            </AsyncBoundary>
+
+            <section className="flex flex-col gap-6 border-t border-gray-200 pt-8">
+                <AsyncBoundary
+                    fallback={
+                        <h2 className="text-lg font-semibold text-black">댓글</h2>
+                    }
+                >
+                    <CommentSectionHeader postSlug={slug} />
+                </AsyncBoundary>
+                <CommentForm postSlug={slug} />
+                <CommentList postSlug={slug} />
+            </section>
+
+            <div ref={sentinelRef} className="h-px w-full" aria-hidden="true" />
+        </main>
+
+        <NewsletterSubscribeModal
+            open={showNewsletter}
+            onClose={() => setShowNewsletter(false)}
+        />
+    </>
     )
 }

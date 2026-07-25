@@ -1,0 +1,1 @@
+export const POST_DETAIL_CONTAINER_CLASS = "mx-auto w-full max-w-[800px] px-6"
