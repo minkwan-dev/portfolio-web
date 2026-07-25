@@ -1,8 +1,8 @@
 "use client"
 
 import { Suspense, type ReactNode } from "react"
-import { ErrorBoundary } from "@/components/error-boundary"
-import { ErrorFallback } from "@/components/error-fallback"
+import { ErrorBoundary } from "@/components/shared/error-boundary"
+import { ErrorFallback } from "@/components/shared/error-fallback"
 
 type AsyncBoundaryProps = {
     children: ReactNode
