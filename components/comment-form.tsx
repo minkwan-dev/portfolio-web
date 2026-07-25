@@ -58,7 +58,7 @@ export function CommentForm({ postSlug }: CommentFormProps) {
       <textarea
         value={body}
         onChange={(event) => setBody(event.target.value)}
-        placeholder="댓글을 남겨보세요"
+        placeholder="입력한 댓글은 수정하거나 삭제할 수 없어요. 또한 허위사실, 욕설, 사칭 등 댓글은 통보없이 삭제될 수 있습니다."
         rows={4}
         className="w-full resize-none rounded-xl border border-gray-200 p-3 text-sm outline-none focus:border-gray-400"
       />
