@@ -8,7 +8,7 @@ import remarkBreaks from "remark-breaks"
 import remarkGfm from "remark-gfm"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { preprocessMarkdown } from "@/lib/preprocess-markdown"
+import { preprocessMarkdown } from "@/lib/blog/preprocess-markdown"
 
 type PostMarkdownBodyProps = {
   content: string

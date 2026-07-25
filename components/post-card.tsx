@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { formatPostDate } from "@/lib/format-date"
-import { resolvePostThumbnail } from "@/lib/post-thumbnail"
+import { formatPostDate } from "@/lib/utils/format-date"
+import { resolvePostThumbnail } from "@/lib/blog/post-thumbnail"
 import type { PostListItem } from "@/lib/types/post"
 
 type PostCardProps = {

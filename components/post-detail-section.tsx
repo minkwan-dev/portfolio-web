@@ -8,8 +8,8 @@ import { CommentSectionHeader } from "@/components/comment-section-header"
 import { NewsletterSubscribeModal } from "@/components/newsletter-subscribe-modal"
 import { PostDetailContent } from "@/components/post-detail-content"
 import { PostDetailSkeleton } from "@/components/post-detail-skeleton"
-import { isNewsletterModalDismissed } from "@/lib/newsletter-modal-storage"
-import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/page-layout"
+import { isNewsletterModalDismissed } from "@/lib/newsletter/newsletter-modal-storage"
+import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/constants/page-layout"
 
 type PostDetailSectionProps = {
   slug: string

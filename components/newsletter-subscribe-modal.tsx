@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react"
 import { NewsletterEnvelopeIllustration } from "@/components/newsletter-envelope-illustration"
-import { dismissNewsletterModalForMonth } from "@/lib/newsletter-modal-storage"
+import { dismissNewsletterModalForMonth } from "@/lib/newsletter/newsletter-modal-storage"
 
 type NewsletterSubscribeModalProps = {
     open: boolean

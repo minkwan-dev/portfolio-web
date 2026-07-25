@@ -3,8 +3,8 @@
 import Image from "next/image"
 import { PostMarkdownBody } from "@/components/post-markdown-body"
 import { usePostDetailQuery } from "@/hooks/api/use-posts"
-import { formatPostDate } from "@/lib/format-date"
-import { resolvePostThumbnail } from "@/lib/post-thumbnail"
+import { formatPostDate } from "@/lib/utils/format-date"
+import { resolvePostThumbnail } from "@/lib/blog/post-thumbnail"
 
 type PostDetailContentProps = {
   slug: string
