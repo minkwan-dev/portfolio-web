@@ -2,7 +2,7 @@
 
 import { useSuspenseQuery } from "@tanstack/react-query"
 import { getMainPosts, getPostBySlug, getPosts } from "@/lib/api/posts"
-import { postKeys } from "@/lib/query-keys"
+import { postKeys } from "@/lib/constants/query-keys"
 
 export function useMainPostsQuery() {
     return useSuspenseQuery({

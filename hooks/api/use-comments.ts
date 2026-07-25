@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
 import { createComment, getCommentIdentity, getComments } from "@/lib/api/comments"
-import { commentKeys } from "@/lib/query-keys"
+import { commentKeys } from "@/lib/constants/query-keys"
 import type { CommentIdentity } from "@/lib/types/comment"
 
 export function useCommentsQuery(postSlug: string) {
