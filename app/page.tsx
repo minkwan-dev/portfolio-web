@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
-import { SiteHeader } from "@/components/site-header"
+import { SiteHeader } from "@/components/layout/site-header"
 import { FeaturedPosts } from "@/components/featured-posts"
 
 export default function Home() {

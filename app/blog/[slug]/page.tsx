@@ -1,5 +1,5 @@
 import { PostDetailSection } from "@/components/post-detail-section"
-import { SiteHeader } from "@/components/site-header"
+import { SiteHeader } from "@/components/layout/site-header"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>

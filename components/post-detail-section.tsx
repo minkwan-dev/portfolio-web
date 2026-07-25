@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { AsyncBoundary } from "@/components/async-boundary"
+import { AsyncBoundary } from "@/components/shared/async-boundary"
 import { CommentForm } from "@/components/comment-form"
 import { CommentList } from "@/components/comment-list"
 import { CommentSectionHeader } from "@/components/comment-section-header"

@@ -1,5 +1,5 @@
 import { PostList } from "@/components/post-list"
-import { SiteHeader } from "@/components/site-header"
+import { SiteHeader } from "@/components/layout/site-header"
 
 export default function BlogPage() {
     return (
