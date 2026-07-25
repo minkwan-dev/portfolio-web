@@ -7,6 +7,17 @@ export type PostListItem = {
     tags: string[]
 }
 
-export type PostsBySlugsResponse = {
-    data: PostListItem[]
+export type PostDetail = PostListItem & {
+    shortDescription: string | null
+    body: string
+    commentsCount: number
+    series: { 
+        name: string;  
+        urlSlug: string;
+        order: number | null;
+    } | null
 }
+
+export type PostsResponse = { data: PostListItem[] }
+
+export type PostDetailResponse = { data: PostDetail }

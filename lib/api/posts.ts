@@ -1,10 +1,25 @@
 import { api } from "@/lib/api/axios"
-import type { PostListItem, PostsBySlugsResponse } from "@/lib/types/post"
+import type { 
+    PostDetail, 
+    PostDetailResponse, 
+    PostListItem, 
+    PostsResponse 
+} from "@/lib/types/post"
 
-export async function getPostsBySlugs(slugs: string[],): Promise<PostListItem[]> {
-    const { data } = await api.get<PostsBySlugsResponse>("/posts", {
-        params: { slugs: slugs.join(",") },
-    })
+export async function getMainPosts(): Promise<PostListItem[]> {
+    const response = await api.get<PostsResponse>("/posts/main")
+    const { data: posts } = response.data
+    return posts
+}
 
-    return data.data
+export async function getPosts(): Promise<PostListItem[]> {
+    const response = await api.get<PostsResponse>("/posts")
+    const { data: posts } = response.data
+    return posts
+}
+
+export async function getPostBySlug(slug: string): Promise<PostDetail> {
+    const response = await api.get<PostDetailResponse>(`/posts/${slug}`)
+    const { data: post } = response.data
+    return post
 }

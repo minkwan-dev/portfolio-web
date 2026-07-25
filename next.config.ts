@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "images.velog.io",
             },
+            {
+                protocol: "https",
+                hostname: "api.dicebear.com",
+            },
         ],
     },
 }
