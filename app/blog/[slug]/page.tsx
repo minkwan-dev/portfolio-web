@@ -1,4 +1,4 @@
-import { PostDetailSection } from "@/components/post-detail-section"
+import { PostDetailSection } from "@/components/blog/post-detail/post-detail-section"
 import { SiteHeader } from "@/components/layout/site-header"
 
 type BlogPostPageProps = {

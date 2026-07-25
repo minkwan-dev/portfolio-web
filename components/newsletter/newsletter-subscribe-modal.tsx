@@ -1,7 +1,7 @@
 "use client"
 
 import { X } from "lucide-react"
-import { NewsletterEnvelopeIllustration } from "@/components/newsletter-envelope-illustration"
+import { NewsletterEnvelopeIllustration } from "@/components/newsletter/newsletter-envelope-illustration"
 import { dismissNewsletterModalForMonth } from "@/lib/newsletter/newsletter-modal-storage"
 
 type NewsletterSubscribeModalProps = {

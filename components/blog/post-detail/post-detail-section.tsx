@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 import { AsyncBoundary } from "@/components/shared/async-boundary"
-import { CommentForm } from "@/components/comment-form"
-import { CommentList } from "@/components/comment-list"
-import { CommentSectionHeader } from "@/components/comment-section-header"
-import { NewsletterSubscribeModal } from "@/components/newsletter-subscribe-modal"
-import { PostDetailContent } from "@/components/post-detail-content"
-import { PostDetailSkeleton } from "@/components/post-detail-skeleton"
+import { CommentForm } from "@/components/comments/comment-form"
+import { CommentList } from "@/components/comments/comment-list"
+import { CommentSectionHeader } from "@/components/comments/comment-section-header"
+import { NewsletterSubscribeModal } from "@/components/newsletter/newsletter-subscribe-modal"
+import { PostDetailContent } from "@/components/blog/post-detail/post-detail-content"
+import { PostDetailSkeleton } from "@/components/blog/post-detail/post-detail-skeleton"
 import { isNewsletterModalDismissed } from "@/lib/newsletter/newsletter-modal-storage"
 import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/constants/page-layout"
 

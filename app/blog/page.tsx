@@ -1,4 +1,4 @@
-import { PostList } from "@/components/post-list"
+import { PostList } from "@/components/blog/post-list"
 import { SiteHeader } from "@/components/layout/site-header"
 
 export default function BlogPage() {
