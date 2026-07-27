@@ -1,4 +1,4 @@
-import { PostList } from "@/components/blog/post-list"
+import { PostList } from "@/components/blog-list/post-list/post-list"
 import { PageShell } from "@/components/layout/page-shell"
 
 export default function BlogPage() {
