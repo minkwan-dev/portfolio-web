@@ -11,10 +11,10 @@ export type PostDetail = PostListItem & {
     shortDescription: string | null
     body: string
     commentsCount: number
-    series: { 
-        name: string;  
-        urlSlug: string;
-        order: number | null;
+    series: {
+        name: string
+        urlSlug: string
+        order: number | null
     } | null
 }
 

@@ -1,10 +1,10 @@
 import { api } from "@/lib/api/axios"
-import type { 
-    PostDetail, 
-    PostDetailResponse, 
-    PostListItem, 
-    PostsResponse 
-} from "@/lib/types/post"
+import type {
+    PostDetail,
+    PostDetailResponse,
+    PostListItem,
+    PostsResponse,
+} from "@/lib/post/types"
 
 export async function getMainPosts(): Promise<PostListItem[]> {
     const response = await api.get<PostsResponse>("/posts/main")

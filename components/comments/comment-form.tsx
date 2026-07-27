@@ -4,7 +4,7 @@ import { SubmitEvent, useState } from "react"
 import {
   useCommentIdentityQuery,
   useCreateCommentMutation,
-} from "@/hooks/api/use-comments"
+} from "@/lib/comment/use-comments"
 
 type CommentFormProps = {
   postSlug: string

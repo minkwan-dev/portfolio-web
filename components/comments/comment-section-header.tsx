@@ -1,6 +1,6 @@
 "use client"
 
-import { useCommentsQuery } from "@/hooks/api/use-comments"
+import { useCommentsQuery } from "@/lib/comment/use-comments"
 
 type CommentSectionHeaderProps = {
   postSlug: string

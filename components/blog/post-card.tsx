@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { formatPostDate } from "@/lib/utils/format-date"
 import { resolvePostThumbnail } from "@/lib/blog/post-thumbnail"
-import type { PostListItem } from "@/lib/types/post"
+import type { PostListItem } from "@/lib/post/types"
 
 type PostCardProps = {
     post: PostListItem

@@ -5,7 +5,7 @@ import type {
     CommentIdentityResponse,
     CommentResponse,
     CommentsResponse,
-} from "@/lib/types/comment"
+} from "@/lib/comment/types"
 
 export async function getCommentIdentity(): Promise<CommentIdentity> {
     const response = await api.get<CommentIdentityResponse>("/comments/identity")
@@ -19,7 +19,10 @@ export async function getComments(postSlug: string): Promise<Comment[]> {
     return comments
 }
 
-export async function createComment(postSlug: string, payload: CommentIdentity & { body: string }): Promise<Comment> {
+export async function createComment(
+    postSlug: string,
+    payload: CommentIdentity & { body: string },
+): Promise<Comment> {
     const response = await api.post<CommentResponse>(`/posts/${postSlug}/comments`, payload)
     const { data: comment } = response.data
     return comment
