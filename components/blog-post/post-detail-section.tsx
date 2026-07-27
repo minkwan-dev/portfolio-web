@@ -1,9 +1,9 @@
 "use client"
 
 import { AsyncBoundary } from "@/components/shared/async-boundary"
-import { CommentSection } from "@/components/blog-post/comments/comments/comment-section"
-import { PostDetailContent } from "@/components/blog/post-detail/post-detail-content"
-import { PostDetailSkeleton } from "@/components/blog/post-detail/post-detail-skeleton"
+import { CommentSection } from "@/components/blog-post/comments/comment-section"
+import { PostDetailContent } from "@/components/blog-post/post-detail-content"
+import { PostDetailSkeleton } from "@/components/blog-post/post-detail-skeleton"
 import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/constants/page-layout"
 
 type PostDetailSectionProps = {
