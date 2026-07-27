@@ -1,9 +1,9 @@
 "use client"
 
 import { AsyncBoundary } from "@/components/shared/async-boundary"
-import { CommentForm } from "@/components/comments/comment-form"
-import { CommentList } from "@/components/comments/comment-list"
-import { CommentSectionHeader } from "@/components/comments/comment-section-header"
+import { CommentForm } from "@/components/blog-post/comments/comment-form"
+import { CommentList } from "@/components/blog-post/comments/comment-list"
+import { CommentSectionHeader } from "@/components/blog-post/comments/comment-section-header"
 
 type CommentSectionProps = {
   postSlug: string
