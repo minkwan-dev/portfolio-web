@@ -1,6 +1,6 @@
 "use client"
 
-import { PostCard } from "@/components/blog/post-card"
+import { PostCard } from "@/components/post/post-card"
 import { usePostsQuery } from "@/lib/post/use-posts"
 
 export function PostListContent() {
