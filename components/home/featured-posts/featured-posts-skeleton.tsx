@@ -1,4 +1,4 @@
-import { FeaturedPostsHeader } from "@/components/home/featured-posts-header"
+import { FeaturedPostsHeader } from "@/components/home/featured-posts/featured-posts-header"
 
 const SKELETON_ROWS = 5
 const SKELETON_COLS = 3
