@@ -1,5 +1,5 @@
 import { PostDetailSection } from "@/components/blog/post-detail/post-detail-section"
-import { SiteHeader } from "@/components/layout/site-header"
+import { PageShell } from "@/components/layout/page-shell"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>
@@ -9,9 +9,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params
 
     return (
-    <div className="flex flex-1 flex-col bg-white text-black">
-        <SiteHeader active="blog" />
-        <PostDetailSection slug={slug} />
-    </div>
+        <PageShell active="blog">
+            <PostDetailSection slug={slug} />
+        </PageShell>
     )
 }
