@@ -10,8 +10,6 @@ export type Comment = CommentIdentity & {
     updatedAt: string
 }
 
-export type CommentIdentityResponse = { data: CommentIdentity }
-
 export type CommentsResponse = { data: Comment[] }
 
 export type CommentResponse = { data: Comment }

@@ -1,7 +1,7 @@
 "use client"
 
-import { useMutation, useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
-import { createComment, getCommentIdentity, getComments } from "@/lib/comment/api"
+import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
+import { createComment, getComments } from "@/lib/comment/api"
 import { commentKeys } from "@/lib/comment/keys"
 import type { CommentIdentity } from "@/lib/comment/types"
 
@@ -10,19 +10,6 @@ export function useCommentsQuery(postSlug: string) {
         queryKey: commentKeys.byPost(postSlug),
         queryFn: () => getComments(postSlug),
     })
-}
-
-export function useCommentIdentityQuery() {
-    const query = useQuery({
-        queryKey: commentKeys.identity(),
-        queryFn: getCommentIdentity,
-    })
-
-    return {
-        identity: query.data ?? null,
-        refresh: query.refetch,
-        isLoading: query.isLoading || query.isFetching,
-    }
 }
 
 export function useCreateCommentMutation(postSlug: string) {
