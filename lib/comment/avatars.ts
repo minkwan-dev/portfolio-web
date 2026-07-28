@@ -1,19 +1,19 @@
 export const COMMENT_AVATARS = [
-    "/avatars/01.svg",
-    "/avatars/02.svg",
-    "/avatars/03.svg",
-    "/avatars/04.svg",
-    "/avatars/05.svg",
-    "/avatars/06.svg",
-    "/avatars/07.svg",
-    "/avatars/08.svg",
-    "/avatars/09.svg",
-    "/avatars/10.svg",
-    "/avatars/11.svg",
-    "/avatars/12.svg",
-    "/avatars/13.svg",
-    "/avatars/14.svg",
-    "/avatars/15.svg",
-  ] as const
-  
-  export type CommentAvatar = (typeof COMMENT_AVATARS)[number]
+  "/avatars/avatar01.svg",
+  "/avatars/avatar02.svg",
+  "/avatars/avatar03.svg",
+  "/avatars/avatar04.svg",
+  "/avatars/avatar05.svg",
+  "/avatars/avatar06.svg",
+  "/avatars/avatar07.svg",
+  "/avatars/avatar08.svg",
+  "/avatars/avatar09.svg",
+  "/avatars/avatar10.svg",
+  "/avatars/avatar11.svg",
+  "/avatars/avatar12.svg",
+  "/avatars/avatar13.svg",
+  "/avatars/avatar14.svg",
+  "/avatars/avatar15.svg",
+] as const
+
+export type CommentAvatar = (typeof COMMENT_AVATARS)[number]
