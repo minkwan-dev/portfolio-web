@@ -4,7 +4,7 @@ import Image from "next/image"
 import { PostMarkdownBody } from "@/components/blog-post/post-markdown-body"
 import { usePostDetailQuery } from "@/lib/post/use-posts"
 import { formatPostDate } from "@/lib/utils/format-date"
-import { resolvePostThumbnail } from "@/lib/blog/post-thumbnail"
+import { resolvePostDetailDisplay } from "@/lib/blog/dedupe-thumbnail"
 
 type PostDetailContentProps = {
   slug: string
@@ -13,8 +13,7 @@ type PostDetailContentProps = {
 export function PostDetailContent({ slug }: PostDetailContentProps) {
     const { data: post } = usePostDetailQuery(slug)
     const releasedAt = formatPostDate(post.releasedAt)
-    const thumbnailSrc = resolvePostThumbnail(post.thumbnail)
-    const isFallback = thumbnailSrc === "/fallback-post.png"
+    const { heroSrc, body, isFallback } = resolvePostDetailDisplay(post.thumbnail, post.body)
 
     return (
     <article className="flex flex-col gap-8">
@@ -29,7 +28,7 @@ export function PostDetailContent({ slug }: PostDetailContentProps) {
 
         <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl bg-gray-100">
             <Image
-                src={thumbnailSrc}
+                src={heroSrc}
                 alt={post.title}
                 fill
                 priority
@@ -39,7 +38,7 @@ export function PostDetailContent({ slug }: PostDetailContentProps) {
             />
         </div>
 
-        <PostMarkdownBody content={post.body} />
+        <PostMarkdownBody content={body} />
     </article>
     )
 }
