@@ -1,17 +1,11 @@
 "use client"
 
-import { AsyncBoundary } from "@/components/shared/async-boundary"
 import { CommentListContent } from "@/components/blog-post/comments/comment-list-content"
-import { CommentListSkeleton } from "@/components/blog-post/comments/comment-list-skeleton"
 
 type CommentListProps = {
-  postSlug: string
+    postSlug: string
 }
 
 export function CommentList({ postSlug }: CommentListProps) {
-    return (
-    <AsyncBoundary fallback={<CommentListSkeleton />}>
-        <CommentListContent postSlug={postSlug} />
-    </AsyncBoundary>
-    )
+    return <CommentListContent postSlug={postSlug} />
 }
