@@ -6,7 +6,10 @@ import { FeaturedPostsSkeleton } from "@/components/home/featured-posts/featured
 
 export function FeaturedPosts() {
     return (
-    <AsyncBoundary fallback={<FeaturedPostsSkeleton />}>
+    <AsyncBoundary
+        fallback={<FeaturedPostsSkeleton />}
+        errorTitle="추천 글을 불러오지 못했어요"
+    >
         <FeaturedPostsContent />
     </AsyncBoundary>
     )

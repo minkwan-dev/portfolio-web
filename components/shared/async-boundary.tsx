@@ -7,21 +7,32 @@ import { ErrorFallback } from "@/components/shared/error-fallback"
 type AsyncBoundaryProps = {
     children: ReactNode
     fallback: ReactNode
-    errorVariant?: "alert" | "inline"
+    errorVariant?: "section" | "compact"
+    errorTitle?: string
+    errorDescription?: string
     errorFallback?: (props: { error: Error; reset: () => void }) => ReactNode
 }
 
 export function AsyncBoundary({
     children,
     fallback,
-    errorVariant = "alert",
+    errorVariant = "section",
+    errorTitle,
+    errorDescription,
     errorFallback,
 }: AsyncBoundaryProps) {
     return (
         <ErrorBoundary
             fallback={
                 errorFallback ??
-                ((props) => <ErrorFallback {...props} variant={errorVariant} />)
+                ((props) => (
+                    <ErrorFallback
+                        {...props}
+                        variant={errorVariant}
+                        title={errorTitle}
+                        description={errorDescription}
+                    />
+                ))
             }
         >
             <Suspense fallback={fallback}>{children}</Suspense>

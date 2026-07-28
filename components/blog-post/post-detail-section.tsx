@@ -13,7 +13,11 @@ type PostDetailSectionProps = {
 export function PostDetailSection({ slug }: PostDetailSectionProps) {
     return (
         <main className={`flex flex-col gap-10 py-10 ${POST_DETAIL_CONTAINER_CLASS}`}>
-            <AsyncBoundary fallback={<PostDetailSkeleton />}>
+            <AsyncBoundary
+                fallback={<PostDetailSkeleton />}
+                errorTitle="글을 불러오지 못했어요"
+                errorDescription="네트워크 상태를 확인해 주세요."
+            >
                 <PostDetailContent slug={slug} />
             </AsyncBoundary>
             <CommentSection postSlug={slug} />

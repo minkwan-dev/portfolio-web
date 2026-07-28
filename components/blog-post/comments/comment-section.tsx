@@ -16,7 +16,8 @@ export function CommentSection({ postSlug }: CommentSectionProps) {
             <CommentForm postSlug={postSlug} />
             <AsyncBoundary
                 fallback={<CommentSectionSkeleton />}
-                errorVariant="inline"
+                errorVariant="compact"
+                errorTitle="댓글을 불러오지 못했어요"
             >
                 <div className="flex flex-col gap-6">
                     <CommentSectionHeader postSlug={postSlug} />
