@@ -1,7 +1,7 @@
 "use client"
 
 import { useCommentsQuery } from "@/lib/comment/use-comments"
-import { formatPostDate } from "@/lib/utils/format-date"
+import { formatPostDate } from "@/shared/utils/format-date"
 
 type CommentListContentProps = {
   postSlug: string

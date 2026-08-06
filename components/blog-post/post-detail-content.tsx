@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { PostMarkdownBody } from "@/components/blog-post/post-markdown-body"
 import { usePostDetailQuery } from "@/lib/post/use-posts"
-import { formatPostDate } from "@/lib/utils/format-date"
+import { formatPostDate } from "@/shared/utils/format-date"
 import { resolvePostDetailDisplay } from "@/lib/blog/dedupe-thumbnail"
 
 type PostDetailContentProps = {

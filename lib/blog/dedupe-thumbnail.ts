@@ -1,4 +1,4 @@
-import { FALLBACK_POST_THUMBNAIL } from "@/lib/blog/post-thumbnail"
+import { FALLBACK_POST_THUMBNAIL } from "@/shared/utils/post-thumbnail"
 
 function normalizeImageUrl(url: string): string {
     try {

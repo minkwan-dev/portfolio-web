@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { formatPostDate } from "@/lib/utils/format-date"
-import { resolvePostThumbnail } from "@/lib/blog/post-thumbnail"
-import type { PostListItem } from "@/lib/post/types"
+import { formatPostDate } from "@/shared/utils/format-date"
+import { resolvePostThumbnail } from "@/shared/utils/post-thumbnail"
+import type { PostListItem } from "@/shared/model/post.types"
 
 type PostCardProps = {
     post: PostListItem

@@ -3,7 +3,7 @@
 import { FeaturedPostsHeader } from "@/components/home/featured-posts/featured-posts-header"
 import { PostCard } from "@/shared/components/PostCard"
 import { useMainPostsQuery } from "@/lib/post/use-posts"
-import type { PostListItem } from "@/lib/post/types"
+import type { PostListItem } from "@/shared/model/post.types"
 
 function chunk<T>(items: T[], size: number): T[][] {
     const rows: T[][] = []

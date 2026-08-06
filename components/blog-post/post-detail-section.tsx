@@ -4,7 +4,7 @@ import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 import { CommentSection } from "@/components/blog-post/comments/comment-section"
 import { PostDetailContent } from "@/components/blog-post/post-detail-content"
 import { PostDetailSkeleton } from "@/components/blog-post/post-detail-skeleton"
-import { POST_DETAIL_CONTAINER_CLASS } from "@/lib/constants/page-layout"
+import { POST_DETAIL_CONTAINER_CLASS } from "@/shared/constants/page-layout"
 
 type PostDetailSectionProps = {
   slug: string

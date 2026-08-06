@@ -4,7 +4,7 @@ import type {
     PostDetailResponse,
     PostListItem,
     PostsResponse,
-} from "@/lib/post/types"
+} from "@/shared/model/post.types"
 
 export async function getMainPosts(): Promise<PostListItem[]> {
     const response = await api.get<PostsResponse>("/posts/main")
