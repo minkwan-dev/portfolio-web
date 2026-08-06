@@ -1,5 +1,4 @@
-import { PostDetailSection } from "@/feature/blog-detail/components/PostDetailSection"
-import { PageShell } from "@/shared/components/PageShell"
+import BlogDetailPage from "@/feature/blog-detail/page"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>
@@ -8,9 +7,5 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params
 
-    return (
-        <PageShell active="blog">
-            <PostDetailSection slug={slug} />
-        </PageShell>
-    )
+    return <BlogDetailPage slug={slug} />
 }
