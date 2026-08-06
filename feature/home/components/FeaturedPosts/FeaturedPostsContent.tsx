@@ -2,7 +2,7 @@
 
 import { FeaturedPostsHeader } from "@/feature/home/components/FeaturedPosts/FeaturedPostsHeader"
 import { PostCard } from "@/shared/components/PostCard"
-import { useMainPostsQuery } from "@/lib/post/use-posts"
+import { useMainPostsQuery } from "@/feature/home/api/useHomePostsQuery"
 import type { PostListItem } from "@/shared/model/post.types"
 
 function chunk<T>(items: T[], size: number): T[][] {

@@ -1,15 +1,8 @@
 "use client"
 
 import { useSuspenseQuery } from "@tanstack/react-query"
-import { getMainPosts, getPostBySlug, getPosts } from "@/lib/post/api"
+import { getPostBySlug, getPosts } from "@/lib/post/api"
 import { postKeys } from "@/lib/post/keys"
-
-export function useMainPostsQuery() {
-    return useSuspenseQuery({
-        queryKey: postKeys.main(),
-        queryFn: getMainPosts,
-    })
-}
 
 export function usePostsQuery() {
     return useSuspenseQuery({
