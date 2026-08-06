@@ -1,4 +1,4 @@
-import { PostList } from "@/components/blog-list/post-list"
+import { PostList } from "@/feature/blog-list/components/PostList"
 import { PageShell } from "@/shared/components/PageShell"
 
 export default function BlogPage() {
