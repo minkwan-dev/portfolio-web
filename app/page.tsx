@@ -1,5 +1,5 @@
-import { HeroSection } from "@/components/home/hero-section"
-import { FeaturedPosts } from "@/components/home/featured-posts/featured-posts"
+import { HeroSection } from "@/feature/home/components/HeroSection"
+import { FeaturedPosts } from "@/feature/home/components/FeaturedPosts/FeaturedPosts"
 import { PageShell } from "@/shared/components/PageShell"
 
 export default function Home() {
