@@ -1,7 +1,7 @@
 "use client"
 
 import { PostCard } from "@/shared/components/PostCard"
-import { usePostsQuery } from "@/lib/post/use-posts"
+import { usePostsQuery } from "@/feature/blog-list/api/useBlogListQuery"
 
 export function PostListContent() {
     const { data: posts } = usePostsQuery()
