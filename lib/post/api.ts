@@ -1,4 +1,4 @@
-import { api } from "@/lib/api/axios"
+import { api } from "@/shared/api/axiosInstance"
 import type {
     PostDetail,
     PostDetailResponse,
