@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components/layout/site-header"
+import { SiteHeader } from "@/shared/components/SiteHeader"
 
 type PageShellProps = {
     active: "home" | "blog"

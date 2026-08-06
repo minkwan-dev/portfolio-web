@@ -1,5 +1,5 @@
 import { PostDetailSection } from "@/components/blog-post/post-detail-section"
-import { PageShell } from "@/components/layout/page-shell"
+import { PageShell } from "@/shared/components/PageShell"
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>

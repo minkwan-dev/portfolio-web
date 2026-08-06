@@ -1,5 +1,5 @@
 import { PostList } from "@/components/blog-list/post-list"
-import { PageShell } from "@/components/layout/page-shell"
+import { PageShell } from "@/shared/components/PageShell"
 
 export default function BlogPage() {
     return (

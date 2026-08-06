@@ -1,6 +1,6 @@
 "use client"
 
-import { AsyncBoundary } from "@/components/shared/async-boundary"
+import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 import { CommentForm } from "@/components/blog-post/comments/comment-form"
 import { CommentListContent } from "@/components/blog-post/comments/comment-list-content"
 import { CommentSectionHeader } from "@/components/blog-post/comments/comment-section-header"

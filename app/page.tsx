@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/home/hero-section"
 import { FeaturedPosts } from "@/components/home/featured-posts/featured-posts"
-import { PageShell } from "@/components/layout/page-shell"
+import { PageShell } from "@/shared/components/PageShell"
 
 export default function Home() {
     return (
