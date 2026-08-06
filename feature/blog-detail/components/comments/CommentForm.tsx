@@ -1,8 +1,8 @@
 "use client"
 
 import { SubmitEvent, useState } from "react"
-import { useCreateCommentMutation } from "@/lib/comment/use-comments"
-import { useCommentIdentity } from "@/lib/comment/use-comment-identity"
+import { useCreateCommentMutation } from "@/feature/blog-detail/api/useCommentsQuery"
+import { useCommentIdentity } from "@/feature/blog-detail/hooks/useCommentIdentity"
 
 type CommentFormProps = {
     postSlug: string

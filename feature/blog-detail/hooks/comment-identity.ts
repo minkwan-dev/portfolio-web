@@ -1,5 +1,5 @@
-import { COMMENT_AVATARS } from "@/lib/comment/avatars"
-import type { CommentIdentity } from "@/lib/comment/types"
+import { COMMENT_AVATARS } from "@/feature/blog-detail/model/comment-avatars"
+import type { CommentIdentity } from "@/feature/blog-detail/model/comment.types"
 
 const ADJECTIVES = [
     "재미있는", "활기찬", "용감한", "조용한", "빠른", "느긋한", "반짝이는", "든든한",

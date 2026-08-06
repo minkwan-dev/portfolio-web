@@ -4,7 +4,7 @@ import type {
     CommentIdentity,
     CommentResponse,
     CommentsResponse,
-} from "@/lib/comment/types"
+} from "@/feature/blog-detail/model/comment.types"
 
 export async function getComments(postSlug: string): Promise<Comment[]> {
     const response = await api.get<CommentsResponse>(`/posts/${postSlug}/comments`)

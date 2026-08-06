@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { PostMarkdownBody } from "@/feature/blog-detail/components/PostMarkdownBody"
-import { usePostDetailQuery } from "@/lib/post/use-posts"
+import { usePostDetailQuery } from "@/feature/blog-detail/api/useBlogDetailQuery"
 import { formatPostDate } from "@/shared/utils/format-date"
 import { resolvePostDetailDisplay } from "@/feature/blog-detail/utils/dedupe-thumbnail"
 

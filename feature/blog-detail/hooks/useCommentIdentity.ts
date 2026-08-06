@@ -5,8 +5,8 @@ import {
     generateCommentIdentity,
     loadStoredCommentIdentity,
     saveCommentIdentity,
-} from "@/lib/comment/identity"
-import type { CommentIdentity } from "@/lib/comment/types"
+} from "@/feature/blog-detail/hooks/comment-identity"
+import type { CommentIdentity } from "@/feature/blog-detail/model/comment.types"
 
 export function useCommentIdentity() {
     const [identity, setIdentity] = useState<CommentIdentity | null>(null)

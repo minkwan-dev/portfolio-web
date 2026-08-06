@@ -1,9 +1,9 @@
 "use client"
 
 import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
-import { createComment, getComments } from "@/lib/comment/api"
-import { commentKeys } from "@/lib/comment/keys"
-import type { CommentIdentity } from "@/lib/comment/types"
+import { createComment, getComments } from "@/feature/blog-detail/api/commentApi"
+import { commentKeys } from "@/feature/blog-detail/api/commentQueryKeys"
+import type { CommentIdentity } from "@/feature/blog-detail/model/comment.types"
 
 export function useCommentsQuery(postSlug: string) {
     return useSuspenseQuery({
