@@ -1,10 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { PostMarkdownBody } from "@/components/blog-post/post-markdown-body"
+import { PostMarkdownBody } from "@/feature/blog-detail/components/PostMarkdownBody"
 import { usePostDetailQuery } from "@/lib/post/use-posts"
 import { formatPostDate } from "@/shared/utils/format-date"
-import { resolvePostDetailDisplay } from "@/lib/blog/dedupe-thumbnail"
+import { resolvePostDetailDisplay } from "@/feature/blog-detail/utils/dedupe-thumbnail"
 
 type PostDetailContentProps = {
   slug: string

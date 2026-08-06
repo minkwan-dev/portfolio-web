@@ -1,6 +1,6 @@
 "use client"
 
-import { CommentListContent } from "@/components/blog-post/comments/comment-list-content"
+import { CommentListContent } from "@/feature/blog-detail/components/comments/CommentListContent"
 
 type CommentListProps = {
     postSlug: string

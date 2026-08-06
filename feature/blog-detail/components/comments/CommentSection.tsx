@@ -1,10 +1,10 @@
 "use client"
 
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
-import { CommentForm } from "@/components/blog-post/comments/comment-form"
-import { CommentListContent } from "@/components/blog-post/comments/comment-list-content"
-import { CommentSectionHeader } from "@/components/blog-post/comments/comment-section-header"
-import { CommentSectionSkeleton } from "@/components/blog-post/comments/comment-section-skeleton"
+import { CommentForm } from "@/feature/blog-detail/components/comments/CommentForm"
+import { CommentListContent } from "@/feature/blog-detail/components/comments/CommentListContent"
+import { CommentSectionHeader } from "@/feature/blog-detail/components/comments/CommentSectionHeader"
+import { CommentSectionSkeleton } from "@/feature/blog-detail/components/comments/CommentSectionSkeleton"
 
 type CommentSectionProps = {
     postSlug: string
