@@ -12,6 +12,10 @@ import type { SavePostInput } from "@/feature/admin-post-editor/model/post-edito
 import { adminPostListKeys } from "@/feature/admin-post-list/api/adminPostListQueryKeys"
 import { blogListKeys } from "@/feature/blog-list/api/blogListQueryKeys"
 
+type DeleteAdminPostMutationOptions = {
+    redirectToList?: boolean
+}
+
 export function useCreateAdminPostMutation() {
     const queryClient = useQueryClient()
     const router = useRouter()
@@ -39,7 +43,10 @@ export function useUpdateAdminPostMutation(postId: number) {
     })
 }
 
-export function useDeleteAdminPostMutation(postId: number) {
+export function useDeleteAdminPostMutation(
+    postId: number,
+    { redirectToList = true }: DeleteAdminPostMutationOptions = {},
+) {
     const queryClient = useQueryClient()
     const router = useRouter()
 
@@ -48,7 +55,10 @@ export function useDeleteAdminPostMutation(postId: number) {
         onSuccess: () => {
             void queryClient.invalidateQueries({ queryKey: adminPostListKeys.all })
             void queryClient.invalidateQueries({ queryKey: blogListKeys.all })
-            router.push("/admin/posts")
+
+            if (redirectToList) {
+                router.push("/admin/posts")
+            }
         },
     })
 }

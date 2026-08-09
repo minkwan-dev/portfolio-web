@@ -1,8 +1,8 @@
 "use client"
 
-import Link from "next/link"
 import { useAdminPostListQuery } from "@/feature/admin-post-list/api/useAdminPostListQuery"
 import { AdminPostListSkeleton } from "@/feature/admin-post-list/components/AdminPostListSkeleton"
+import { AdminPostRowActions } from "@/feature/admin-post-list/components/AdminPostRowActions"
 import { ErrorFallback } from "@/shared/components/ErrorFallback"
 
 export function AdminPostListContent() {
@@ -44,12 +44,7 @@ export function AdminPostListContent() {
                                 {post.releasedAt?.slice(0, 10) ?? "-"}
                             </td>
                             <td className="px-4 py-3">
-                                <Link
-                                    href={`/admin/posts/${post.id}/edit`}
-                                    className="text-gray-700 underline-offset-2 hover:underline"
-                                >
-                                    수정
-                                </Link>
+                                <AdminPostRowActions post={post} />
                             </td>
                         </tr>
                     ))}
