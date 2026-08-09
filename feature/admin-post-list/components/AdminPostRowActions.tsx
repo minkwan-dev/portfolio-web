@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Pencil, Trash2 } from "lucide-react"
 import { useDeleteAdminPostMutation } from "@/feature/admin-post-editor/api/useAdminPostMutations"
 import type { AdminPostListItem } from "@/feature/admin-post-list/model/admin-post.types"
 
@@ -18,20 +19,22 @@ export function AdminPostRowActions({ post }: AdminPostRowActionsProps) {
     }
 
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
             <Link
                 href={`/admin/posts/${post.id}/edit`}
-                className="text-gray-700 underline-offset-2 hover:underline"
+                aria-label={`"${post.title}" 수정`}
+                className="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-black"
             >
-                수정
+                <Pencil className="h-4 w-4" />
             </Link>
             <button
                 type="button"
+                aria-label={`"${post.title}" 삭제`}
                 disabled={deleteMutation.isPending}
                 onClick={handleDelete}
-                className="text-red-500 hover:text-red-600 disabled:opacity-60"
+                className="rounded-lg p-2 text-gray-500 transition-colors hover:bg-red-50 hover:text-red-500 disabled:opacity-60"
             >
-                {deleteMutation.isPending ? "삭제 중..." : "삭제"}
+                <Trash2 className="h-4 w-4" />
             </button>
         </div>
     )

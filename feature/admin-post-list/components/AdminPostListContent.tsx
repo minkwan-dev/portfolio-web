@@ -5,6 +5,7 @@ import { useAdminPostListQuery } from "@/feature/admin-post-list/api/useAdminPos
 import { AdminPostListPagination } from "@/feature/admin-post-list/components/AdminPostListPagination"
 import { AdminPostListSkeleton } from "@/feature/admin-post-list/components/AdminPostListSkeleton"
 import { AdminPostRowActions } from "@/feature/admin-post-list/components/AdminPostRowActions"
+import { AdminPostStatusDot } from "@/feature/admin-post-list/components/AdminPostStatusDot"
 import { ErrorFallback } from "@/shared/components/ErrorFallback"
 
 export function AdminPostListContent() {
@@ -32,7 +33,9 @@ export function AdminPostListContent() {
                         <th className="px-4 py-3">제목</th>
                         <th className="px-4 py-3">상태</th>
                         <th className="px-4 py-3">발행일</th>
-                        <th className="px-4 py-3">액션</th>
+                        <th className="w-24 px-4 py-3">
+                            <span className="sr-only">글 관리</span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,8 +43,7 @@ export function AdminPostListContent() {
                         <tr key={post.id} className="border-b border-gray-100 last:border-0">
                             <td className="px-4 py-3 font-medium">{post.title}</td>
                             <td className="px-4 py-3">
-                                {post.isTemp ? "임시" : "발행"}
-                                {post.isMain ? " · 메인" : ""}
+                                <AdminPostStatusDot post={post} />
                             </td>
                             <td className="px-4 py-3 text-gray-500">
                                 {post.releasedAt?.slice(0, 10) ?? "-"}
