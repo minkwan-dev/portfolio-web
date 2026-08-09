@@ -26,6 +26,7 @@ export type PostEditorFormValues = {
     isTemp: boolean
     isMain: boolean
     mainOrder: string
+    releasedAt: string
 }
 
 export type SavePostInput = {
@@ -38,4 +39,5 @@ export type SavePostInput = {
     isTemp: boolean
     isMain: boolean
     mainOrder: number | null
+    releasedAt: string | null
 }

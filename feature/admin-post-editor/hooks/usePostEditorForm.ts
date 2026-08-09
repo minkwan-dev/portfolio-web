@@ -17,6 +17,21 @@ const EMPTY_FORM: PostEditorFormValues = {
     isTemp: true,
     isMain: false,
     mainOrder: "",
+    releasedAt: "",
+}
+
+function toDatetimeLocalValue(iso: string | null): string {
+    if (!iso) return ""
+
+    const date = new Date(iso)
+    if (Number.isNaN(date.getTime())) return ""
+
+    const pad = (value: number) => String(value).padStart(2, "0")
+
+    return (
+        [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-") +
+        `T${pad(date.getHours())}:${pad(date.getMinutes())}`
+    )
 }
 
 function toFormValues(post?: AdminPostDetail): PostEditorFormValues {
@@ -32,6 +47,7 @@ function toFormValues(post?: AdminPostDetail): PostEditorFormValues {
         isTemp: post.isTemp,
         isMain: post.isMain,
         mainOrder: post.mainOrder?.toString() ?? "",
+        releasedAt: toDatetimeLocalValue(post.releasedAt),
     }
 }
 
@@ -49,6 +65,7 @@ export function toSavePostInput(values: PostEditorFormValues): SavePostInput {
         isTemp: values.isTemp,
         isMain: values.isMain,
         mainOrder: values.mainOrder ? Number(values.mainOrder) : null,
+        releasedAt: values.releasedAt ? new Date(values.releasedAt).toISOString() : null,
     }
 }
 

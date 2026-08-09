@@ -43,6 +43,12 @@ export function PostEditorFields({ values, updateField }: PostEditorFieldsProps)
                 placeholder="태그 (쉼표 구분)"
                 className="rounded-xl border border-gray-200 px-4 py-3"
             />
+            <input
+                type="datetime-local"
+                value={values.releasedAt}
+                onChange={(e) => updateField("releasedAt", e.target.value)}
+                className="rounded-xl border border-gray-200 px-4 py-3"
+            />
             <textarea
                 value={values.body}
                 onChange={(e) => updateField("body", e.target.value)}

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ADMIN_CONTAINER_CLASS } from "@/shared/constants/page-layout"
 
 type AdminPageShellProps = {
     active: "posts"
@@ -9,7 +10,7 @@ export function AdminPageShell({ active, children }: AdminPageShellProps) {
     return (
         <div className="flex min-h-full flex-col bg-gray-50 text-black">
             <header className="border-b border-gray-200 bg-white">
-                <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+                <div className={`flex items-center justify-between py-4 ${ADMIN_CONTAINER_CLASS}`}>
                     <Link href="/admin/posts" className="text-sm font-semibold">
                         Admin
                     </Link>
