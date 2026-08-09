@@ -18,6 +18,17 @@ export type PostDetail = PostListItem & {
     } | null
 }
 
-export type PostsResponse = { data: PostListItem[] }
+export type PostsPaginationMeta = {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+    hasNextPage: boolean
+}
+
+export type PostsResponse = {
+    data: PostListItem[]
+    meta: PostsPaginationMeta
+}
 
 export type PostDetailResponse = { data: PostDetail }
