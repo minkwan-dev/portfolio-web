@@ -8,3 +8,5 @@ export default async function Page({ params }: Props) {
     const { id } = await params
     return <AdminPostEditorPage postId={Number(id)} />
 }
+
+export const dynamic = "force-dynamic"
