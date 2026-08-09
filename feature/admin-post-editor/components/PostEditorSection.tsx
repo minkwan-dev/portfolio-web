@@ -14,7 +14,7 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
 
     if (isLoading) {
         return (
-            <PostEditorShell showSettings={false}>
+            <PostEditorShell>
                 <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
                     <div className="min-h-0 flex-1 animate-pulse bg-gray-100" />
                     <div className="min-h-[24rem] flex-1 animate-pulse bg-gray-200 lg:min-h-0" />
@@ -25,7 +25,7 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
 
     if (isError || !post) {
         return (
-            <PostEditorShell showSettings={false}>
+            <PostEditorShell>
                 <div className="flex flex-1 items-center justify-center px-6 py-10">
                     <ErrorFallback
                         error={

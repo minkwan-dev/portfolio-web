@@ -1,10 +1,17 @@
 "use client"
 
-import { usePostEditorFormContext } from "@/feature/admin-post-editor/context/PostEditorFormContext"
+import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+
+type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
+    key: K,
+    value: PostEditorFormValues[K],
+) => void
 
 type PostEditorSettingsDrawerProps = {
     open: boolean
     onClose: () => void
+    values: PostEditorFormValues
+    updateField: PostEditorFieldUpdater
     onDelete?: () => void
 }
 
@@ -13,10 +20,10 @@ const SETTINGS_INPUT_CLASS = "rounded-xl border border-gray-200 px-4 py-3 text-s
 export function PostEditorSettingsDrawer({
     open,
     onClose,
+    values,
+    updateField,
     onDelete,
 }: PostEditorSettingsDrawerProps) {
-    const { values, updateField } = usePostEditorFormContext()
-
     if (!open) return null
 
     return (
