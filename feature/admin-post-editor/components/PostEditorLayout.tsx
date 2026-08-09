@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import {
     useCreateAdminPostMutation,
     useDeleteAdminPostMutation,
@@ -17,6 +17,7 @@ import {
 } from "@/feature/admin-post-editor/hooks/usePostEditorForm"
 import type { AdminPostDetail } from "@/feature/admin-post-editor/model/post-editor.types"
 import { validateForPublish } from "@/feature/admin-post-editor/utils/validate-for-publish"
+import { useSaveDraftShortcut } from "@/feature/admin-post-editor/hooks/useSaveDraftShortcut"
 import { ConfirmModal } from "@/shared/components/ConfirmModal"
 import { useToast } from "@/shared/providers/ToastProvider"
 
@@ -37,36 +38,43 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
     const isPending =
         createMutation.isPending || updateMutation.isPending || deleteMutation.isPending
 
-    const handleMutationError = () => {
+    const handleMutationError = useCallback(() => {
         showToast({ message: "요청을 처리하지 못했어요. 다시 시도해 주세요.", variant: "error" })
-    }
+    }, [showToast])
 
-    const handleSave = (isTemp: boolean, onSuccess?: () => void) => {
-        const input = toSavePostInput(values, isTemp)
+    const handleSave = useCallback(
+        (isTemp: boolean, onSuccess?: () => void) => {
+            const input = toSavePostInput(values, isTemp)
 
-        if (post) {
-            updateMutation.mutate(input, {
+            if (post) {
+                updateMutation.mutate(input, {
+                    onSuccess: () => {
+                        onSuccess?.()
+                    },
+                    onError: handleMutationError,
+                })
+                return
+            }
+
+            createMutation.mutate(input, {
                 onSuccess: () => {
                     onSuccess?.()
                 },
                 onError: handleMutationError,
             })
-            return
-        }
+        },
+        [createMutation, handleMutationError, post, updateMutation, values],
+    )
 
-        createMutation.mutate(input, {
-            onSuccess: () => {
-                onSuccess?.()
-            },
-            onError: handleMutationError,
-        })
-    }
+    const handleSaveDraft = useCallback(() => {
+        if (isPending) return
 
-    const handleSaveDraft = () => {
         handleSave(true, () => {
             showToast({ message: "포스트가 임시저장되었습니다." })
         })
-    }
+    }, [handleSave, isPending, showToast])
+
+    useSaveDraftShortcut(handleSaveDraft, !publishModalOpen && !deleteModalOpen)
 
     const handlePublishClick = () => {
         const validationError = validateForPublish(values)
