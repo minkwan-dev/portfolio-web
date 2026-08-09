@@ -42,7 +42,7 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
                 <PostEditorFields values={values} updateField={updateField} />
 
                 <div className="xl:sticky xl:top-6 xl:self-start">
-                    <div className="h-[calc(100vh-12rem)] overflow-hidden rounded-2xl border border-gray-200 bg-white p-6">
+                    <div className="flex h-[calc(100vh-12rem)] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-6">
                         <PostEditorPreview values={values} />
                     </div>
                 </div>
