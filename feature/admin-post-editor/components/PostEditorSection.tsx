@@ -1,6 +1,6 @@
 "use client"
 
-import { PostEditorForm } from "@/feature/admin-post-editor/components/PostEditorForm"
+import { PostEditorLayout } from "@/feature/admin-post-editor/components/PostEditorLayout"
 import { useAdminPostEditorQuery } from "@/feature/admin-post-editor/api/useAdminPostEditorQuery"
 import { ErrorFallback } from "@/shared/components/ErrorFallback"
 
@@ -12,7 +12,7 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
     const { data: post, isLoading, isError, error, refetch } = useAdminPostEditorQuery(postId)
 
     if (isLoading) {
-        return <div className="h-40 animate-pulse rounded-xl bg-gray-200" />
+        return <div className="h-[calc(100vh-12rem)] animate-pulse rounded-xl bg-gray-200" />
     }
 
     if (isError || !post) {
@@ -26,5 +26,5 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
         )
     }
 
-    return <PostEditorForm key={post.id} post={post} />
+    return <PostEditorLayout key={post.id} post={post} />
 }
