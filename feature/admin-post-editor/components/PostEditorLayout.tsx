@@ -1,12 +1,12 @@
 "use client"
 
-import Link from "next/link"
 import {
     useCreateAdminPostMutation,
     useDeleteAdminPostMutation,
     useUpdateAdminPostMutation,
 } from "@/feature/admin-post-editor/api/useAdminPostMutations"
 import { PostEditorFields } from "@/feature/admin-post-editor/components/PostEditorFields"
+import { PostEditorFooter } from "@/feature/admin-post-editor/components/PostEditorFooter"
 import { PostEditorPreview } from "@/feature/admin-post-editor/components/PostEditorPreview"
 import {
     toSavePostInput,
@@ -36,43 +36,30 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
         createMutation.mutate(input)
     }
 
-    return (
-        <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 gap-8 xl:grid-cols-2">
-                <PostEditorFields values={values} updateField={updateField} />
+    const handleDelete = () => {
+        if (confirm("정말 삭제할까요?")) {
+            deleteMutation.mutate()
+        }
+    }
 
-                <div className="xl:sticky xl:top-6 xl:self-start">
-                    <div className="flex h-[calc(100vh-12rem)] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-6">
-                        <PostEditorPreview values={values} />
-                    </div>
+    return (
+        <>
+            <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+                <div className="min-h-0 flex-1 overflow-y-auto bg-white px-6 py-8 lg:border-r lg:border-gray-200">
+                    <PostEditorFields values={values} updateField={updateField} />
+                </div>
+
+                <div className="flex min-h-[24rem] min-w-0 flex-1 flex-col overflow-hidden bg-gray-50 lg:min-h-0">
+                    <PostEditorPreview values={values} />
                 </div>
             </div>
 
-            <div className="flex items-center gap-3 border-t border-gray-200 pt-4">
-                <button
-                    type="button"
-                    disabled={isPending}
-                    onClick={handleSubmit}
-                    className="rounded-xl bg-black px-4 py-2 text-sm text-white disabled:opacity-60"
-                >
-                    {post ? "저장" : "생성"}
-                </button>
-                <Link href="/admin/posts" className="text-sm text-gray-500 hover:text-black">
-                    목록
-                </Link>
-                {post ? (
-                    <button
-                        type="button"
-                        disabled={isPending}
-                        onClick={() => {
-                            if (confirm("정말 삭제할까요?")) deleteMutation.mutate()
-                        }}
-                        className="ml-auto text-sm text-red-500 hover:text-red-600 disabled:opacity-60"
-                    >
-                        삭제
-                    </button>
-                ) : null}
-            </div>
-        </div>
+            <PostEditorFooter
+                isEditMode={Boolean(post)}
+                isPending={isPending}
+                onSubmit={handleSubmit}
+                onDelete={post ? handleDelete : undefined}
+            />
+        </>
     )
 }

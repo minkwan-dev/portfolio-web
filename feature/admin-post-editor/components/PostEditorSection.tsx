@@ -12,17 +12,24 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
     const { data: post, isLoading, isError, error, refetch } = useAdminPostEditorQuery(postId)
 
     if (isLoading) {
-        return <div className="h-[calc(100vh-12rem)] animate-pulse rounded-xl bg-gray-200" />
+        return (
+            <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+                <div className="min-h-0 flex-1 animate-pulse bg-gray-100" />
+                <div className="min-h-[24rem] flex-1 animate-pulse bg-gray-200 lg:min-h-0" />
+            </div>
+        )
     }
 
     if (isError || !post) {
         return (
-            <ErrorFallback
-                error={error instanceof Error ? error : new Error("글 정보를 불러오지 못했어요")}
-                reset={() => void refetch()}
-                variant="section"
-                title="글 정보를 불러오지 못했어요"
-            />
+            <div className="flex flex-1 items-center justify-center px-6 py-10">
+                <ErrorFallback
+                    error={error instanceof Error ? error : new Error("글 정보를 불러오지 못했어요")}
+                    reset={() => void refetch()}
+                    variant="section"
+                    title="글 정보를 불러오지 못했어요"
+                />
+            </div>
         )
     }
 
