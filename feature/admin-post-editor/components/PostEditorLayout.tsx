@@ -16,6 +16,9 @@ import {
     usePostEditorForm,
 } from "@/feature/admin-post-editor/hooks/usePostEditorForm"
 import type { AdminPostDetail } from "@/feature/admin-post-editor/model/post-editor.types"
+import { validateForPublish } from "@/feature/admin-post-editor/utils/validate-for-publish"
+import { ConfirmModal } from "@/shared/components/ConfirmModal"
+import { useToast } from "@/shared/providers/ToastProvider"
 
 type PostEditorLayoutProps = {
     post?: AdminPostDetail
@@ -23,6 +26,9 @@ type PostEditorLayoutProps = {
 
 export function PostEditorLayout({ post }: PostEditorLayoutProps) {
     const [settingsOpen, setSettingsOpen] = useState(false)
+    const [publishModalOpen, setPublishModalOpen] = useState(false)
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+    const { showToast } = useToast()
     const { values, updateField } = usePostEditorForm(post)
     const createMutation = useCreateAdminPostMutation()
     const updateMutation = useUpdateAdminPostMutation(post?.id ?? 0)
@@ -31,20 +37,66 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
     const isPending =
         createMutation.isPending || updateMutation.isPending || deleteMutation.isPending
 
-    const handleSave = (isTemp: boolean) => {
-        const input = toSavePostInput(values, isTemp)
-        if (post) {
-            updateMutation.mutate(input)
-            return
-        }
-        createMutation.mutate(input)
+    const handleMutationError = () => {
+        showToast({ message: "요청을 처리하지 못했어요. 다시 시도해 주세요.", variant: "error" })
     }
 
-    const handleDelete = () => {
-        if (confirm("정말 삭제할까요?")) {
-            deleteMutation.mutate()
-            setSettingsOpen(false)
+    const handleSave = (isTemp: boolean, onSuccess?: () => void) => {
+        const input = toSavePostInput(values, isTemp)
+
+        if (post) {
+            updateMutation.mutate(input, {
+                onSuccess: () => {
+                    onSuccess?.()
+                },
+                onError: handleMutationError,
+            })
+            return
         }
+
+        createMutation.mutate(input, {
+            onSuccess: () => {
+                onSuccess?.()
+            },
+            onError: handleMutationError,
+        })
+    }
+
+    const handleSaveDraft = () => {
+        handleSave(true, () => {
+            showToast({ message: "포스트가 임시저장되었습니다." })
+        })
+    }
+
+    const handlePublishClick = () => {
+        const validationError = validateForPublish(values)
+        if (validationError) {
+            showToast({ message: validationError, variant: "error" })
+            return
+        }
+
+        setPublishModalOpen(true)
+    }
+
+    const handlePublishConfirm = () => {
+        handleSave(false, () => {
+            showToast({ message: "글이 출간되었습니다." })
+            setPublishModalOpen(false)
+        })
+    }
+
+    const handleDeleteClick = () => {
+        setDeleteModalOpen(true)
+    }
+
+    const handleDeleteConfirm = () => {
+        deleteMutation.mutate(undefined, {
+            onSuccess: () => {
+                setDeleteModalOpen(false)
+                setSettingsOpen(false)
+            },
+            onError: handleMutationError,
+        })
     }
 
     return (
@@ -57,8 +109,8 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
                     <PostEditorWriteFooter
                         isPending={isPending}
                         onOpenSettings={() => setSettingsOpen(true)}
-                        onSaveDraft={() => handleSave(true)}
-                        onPublish={() => handleSave(false)}
+                        onSaveDraft={handleSaveDraft}
+                        onPublish={handlePublishClick}
                     />
                 </div>
 
@@ -72,7 +124,28 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
                 onClose={() => setSettingsOpen(false)}
                 values={values}
                 updateField={updateField}
-                onDelete={post ? handleDelete : undefined}
+                onDelete={post ? handleDeleteClick : undefined}
+            />
+
+            <ConfirmModal
+                open={publishModalOpen}
+                title="글을 출간할까요?"
+                description="출간하면 블로그에 공개됩니다."
+                confirmLabel="출간하기"
+                isPending={isPending}
+                onConfirm={handlePublishConfirm}
+                onClose={() => setPublishModalOpen(false)}
+            />
+
+            <ConfirmModal
+                open={deleteModalOpen}
+                title="글을 삭제할까요?"
+                description="삭제한 글은 복구할 수 없습니다."
+                confirmLabel="삭제"
+                variant="danger"
+                isPending={deleteMutation.isPending}
+                onConfirm={handleDeleteConfirm}
+                onClose={() => setDeleteModalOpen(false)}
             />
         </PostEditorShell>
     )

@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useState } from "react"
+import { ToastProvider } from "@/shared/providers/ToastProvider"
 
 type QueryProviderProps = {
     children: React.ReactNode
@@ -21,7 +22,7 @@ export function QueryProvider({ children }: QueryProviderProps) {
         
         return (
             <QueryClientProvider client={queryClient}>
-                { children }
+                <ToastProvider>{children}</ToastProvider>
             </QueryClientProvider>
         )
 }
