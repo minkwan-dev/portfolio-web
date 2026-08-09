@@ -1,12 +1,15 @@
 "use client"
 
+import { useState } from "react"
 import { useAdminPostListQuery } from "@/feature/admin-post-list/api/useAdminPostListQuery"
+import { AdminPostListPagination } from "@/feature/admin-post-list/components/AdminPostListPagination"
 import { AdminPostListSkeleton } from "@/feature/admin-post-list/components/AdminPostListSkeleton"
 import { AdminPostRowActions } from "@/feature/admin-post-list/components/AdminPostRowActions"
 import { ErrorFallback } from "@/shared/components/ErrorFallback"
 
 export function AdminPostListContent() {
-    const { data, isLoading, isError, error, refetch } = useAdminPostListQuery()
+    const [page, setPage] = useState(1)
+    const { data, isLoading, isError, error, refetch, isFetching } = useAdminPostListQuery(page)
 
     if (isLoading) return <AdminPostListSkeleton />
 
@@ -50,6 +53,11 @@ export function AdminPostListContent() {
                     ))}
                 </tbody>
             </table>
+            <AdminPostListPagination
+                meta={data.meta}
+                onPageChange={setPage}
+                isLoading={isFetching}
+            />
         </div>
     )
 }
