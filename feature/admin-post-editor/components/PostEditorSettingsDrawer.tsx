@@ -1,35 +1,45 @@
 "use client"
 
-import { useState } from "react"
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import { usePostEditorFormContext } from "@/feature/admin-post-editor/context/PostEditorFormContext"
 
-type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
-    key: K,
-    value: PostEditorFormValues[K],
-) => void
-
-type PostEditorSettingsPanelProps = {
-    values: PostEditorFormValues
-    updateField: PostEditorFieldUpdater
+type PostEditorSettingsDrawerProps = {
+    open: boolean
+    onClose: () => void
+    onDelete?: () => void
 }
 
 const SETTINGS_INPUT_CLASS = "rounded-xl border border-gray-200 px-4 py-3 text-sm"
 
-export function PostEditorSettingsPanel({ values, updateField }: PostEditorSettingsPanelProps) {
-    const [open, setOpen] = useState(false)
+export function PostEditorSettingsDrawer({
+    open,
+    onClose,
+    onDelete,
+}: PostEditorSettingsDrawerProps) {
+    const { values, updateField } = usePostEditorFormContext()
+
+    if (!open) return null
 
     return (
-        <div className="border-t border-gray-200 pt-4">
+        <div className="fixed inset-0 z-50 flex justify-end bg-black/20">
             <button
                 type="button"
-                onClick={() => setOpen((prev) => !prev)}
-                className="text-sm text-gray-500 hover:text-black"
-            >
-                {open ? "설정 접기" : "설정 펼치기"}
-            </button>
+                aria-label="설정 닫기"
+                className="flex-1"
+                onClick={onClose}
+            />
+            <aside className="flex h-full w-full max-w-md flex-col bg-white shadow-xl">
+                <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+                    <h2 className="text-sm font-semibold">글 설정</h2>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="text-sm text-gray-500 hover:text-black"
+                    >
+                        닫기
+                    </button>
+                </div>
 
-            {open ? (
-                <div className="mt-4 flex flex-col gap-4">
+                <div className="flex flex-1 flex-col gap-4 overflow-y-auto px-6 py-6">
                     <input
                         value={values.urlSlug}
                         onChange={(e) => updateField("urlSlug", e.target.value)}
@@ -72,7 +82,19 @@ export function PostEditorSettingsPanel({ values, updateField }: PostEditorSetti
                         />
                     </div>
                 </div>
-            ) : null}
+
+                {onDelete ? (
+                    <div className="border-t border-gray-200 px-6 py-4">
+                        <button
+                            type="button"
+                            onClick={onDelete}
+                            className="text-sm text-red-500 hover:text-red-600"
+                        >
+                            글 삭제
+                        </button>
+                    </div>
+                ) : null}
+            </aside>
         </div>
     )
 }

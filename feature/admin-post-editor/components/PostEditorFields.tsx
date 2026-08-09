@@ -1,7 +1,6 @@
 "use client"
 
 import { PostEditorPrimaryFields } from "@/feature/admin-post-editor/components/PostEditorPrimaryFields"
-import { PostEditorSettingsPanel } from "@/feature/admin-post-editor/components/PostEditorSettingsPanel"
 import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
 
 type PostEditorFieldsProps = {
@@ -13,10 +12,5 @@ type PostEditorFieldsProps = {
 }
 
 export function PostEditorFields({ values, updateField }: PostEditorFieldsProps) {
-    return (
-        <div className="flex flex-col gap-6">
-            <PostEditorPrimaryFields values={values} updateField={updateField} />
-            <PostEditorSettingsPanel values={values} updateField={updateField} />
-        </div>
-    )
+    return <PostEditorPrimaryFields values={values} updateField={updateField} />
 }

@@ -6,8 +6,10 @@ import {
     useUpdateAdminPostMutation,
 } from "@/feature/admin-post-editor/api/useAdminPostMutations"
 import { PostEditorFields } from "@/feature/admin-post-editor/components/PostEditorFields"
-import { PostEditorFooter } from "@/feature/admin-post-editor/components/PostEditorFooter"
 import { PostEditorPreview } from "@/feature/admin-post-editor/components/PostEditorPreview"
+import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
+import { PostEditorWriteFooter } from "@/feature/admin-post-editor/components/PostEditorWriteFooter"
+import { PostEditorFormProvider } from "@/feature/admin-post-editor/context/PostEditorFormContext"
 import {
     toSavePostInput,
     usePostEditorForm,
@@ -43,23 +45,25 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
     }
 
     return (
-        <>
-            <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
-                <div className="min-h-0 flex-1 overflow-y-auto bg-white px-6 py-8 lg:border-r lg:border-gray-200">
-                    <PostEditorFields values={values} updateField={updateField} />
-                </div>
+        <PostEditorFormProvider values={values} updateField={updateField}>
+            <PostEditorShell onDelete={post ? handleDelete : undefined}>
+                <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
+                    <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-white lg:border-r lg:border-gray-200">
+                        <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-8">
+                            <PostEditorFields values={values} updateField={updateField} />
+                        </div>
+                        <PostEditorWriteFooter
+                            isPending={isPending}
+                            onSaveDraft={() => handleSave(true)}
+                            onPublish={() => handleSave(false)}
+                        />
+                    </div>
 
-                <div className="flex min-h-[24rem] min-w-0 flex-1 flex-col overflow-hidden bg-gray-50 lg:min-h-0">
-                    <PostEditorPreview values={values} />
+                    <div className="flex min-h-[24rem] min-w-0 flex-1 flex-col overflow-hidden bg-gray-50 lg:min-h-0">
+                        <PostEditorPreview values={values} />
+                    </div>
                 </div>
-            </div>
-
-            <PostEditorFooter
-                isPending={isPending}
-                onSaveDraft={() => handleSave(true)}
-                onPublish={() => handleSave(false)}
-                onDelete={post ? handleDelete : undefined}
-            />
-        </>
+            </PostEditorShell>
+        </PostEditorFormProvider>
     )
 }

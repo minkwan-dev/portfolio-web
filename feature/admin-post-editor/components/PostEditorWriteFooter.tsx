@@ -1,18 +1,16 @@
 import Link from "next/link"
 
-type PostEditorFooterProps = {
+type PostEditorWriteFooterProps = {
     isPending: boolean
     onSaveDraft: () => void
     onPublish: () => void
-    onDelete?: () => void
 }
 
-export function PostEditorFooter({
+export function PostEditorWriteFooter({
     isPending,
     onSaveDraft,
     onPublish,
-    onDelete,
-}: PostEditorFooterProps) {
+}: PostEditorWriteFooterProps) {
     return (
         <footer className="shrink-0 border-t border-gray-200 bg-white px-6 py-4">
             <div className="flex items-center justify-between gap-4">
@@ -21,16 +19,6 @@ export function PostEditorFooter({
                 </Link>
 
                 <div className="flex items-center gap-3">
-                    {onDelete ? (
-                        <button
-                            type="button"
-                            disabled={isPending}
-                            onClick={onDelete}
-                            className="text-sm text-red-500 hover:text-red-600 disabled:opacity-60"
-                        >
-                            삭제
-                        </button>
-                    ) : null}
                     <button
                         type="button"
                         disabled={isPending}
@@ -45,7 +33,7 @@ export function PostEditorFooter({
                         onClick={onPublish}
                         className="rounded-xl bg-black px-4 py-2 text-sm text-white disabled:opacity-60"
                     >
-                        발행
+                        출간하기
                     </button>
                 </div>
             </div>
