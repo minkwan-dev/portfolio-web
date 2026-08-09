@@ -27,8 +27,8 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
     const isPending =
         createMutation.isPending || updateMutation.isPending || deleteMutation.isPending
 
-    const handleSubmit = () => {
-        const input = toSavePostInput(values)
+    const handleSave = (isTemp: boolean) => {
+        const input = toSavePostInput(values, isTemp)
         if (post) {
             updateMutation.mutate(input)
             return
@@ -55,9 +55,9 @@ export function PostEditorLayout({ post }: PostEditorLayoutProps) {
             </div>
 
             <PostEditorFooter
-                isEditMode={Boolean(post)}
                 isPending={isPending}
-                onSubmit={handleSubmit}
+                onSaveDraft={() => handleSave(true)}
+                onPublish={() => handleSave(false)}
                 onDelete={post ? handleDelete : undefined}
             />
         </>

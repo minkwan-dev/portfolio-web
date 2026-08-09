@@ -59,14 +59,6 @@ export function PostEditorSettingsPanel({ values, updateField }: PostEditorSetti
                         <label className="flex items-center gap-2">
                             <input
                                 type="checkbox"
-                                checked={values.isTemp}
-                                onChange={(e) => updateField("isTemp", e.target.checked)}
-                            />
-                            임시 저장
-                        </label>
-                        <label className="flex items-center gap-2">
-                            <input
-                                type="checkbox"
                                 checked={values.isMain}
                                 onChange={(e) => updateField("isMain", e.target.checked)}
                             />

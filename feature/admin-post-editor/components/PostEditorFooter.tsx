@@ -1,16 +1,16 @@
 import Link from "next/link"
 
 type PostEditorFooterProps = {
-    isEditMode: boolean
     isPending: boolean
-    onSubmit: () => void
+    onSaveDraft: () => void
+    onPublish: () => void
     onDelete?: () => void
 }
 
 export function PostEditorFooter({
-    isEditMode,
     isPending,
-    onSubmit,
+    onSaveDraft,
+    onPublish,
     onDelete,
 }: PostEditorFooterProps) {
     return (
@@ -34,10 +34,18 @@ export function PostEditorFooter({
                     <button
                         type="button"
                         disabled={isPending}
-                        onClick={onSubmit}
+                        onClick={onSaveDraft}
+                        className="text-sm text-gray-500 hover:text-black disabled:opacity-60"
+                    >
+                        임시저장
+                    </button>
+                    <button
+                        type="button"
+                        disabled={isPending}
+                        onClick={onPublish}
                         className="rounded-xl bg-black px-4 py-2 text-sm text-white disabled:opacity-60"
                     >
-                        {isEditMode ? "저장" : "생성"}
+                        발행
                     </button>
                 </div>
             </div>

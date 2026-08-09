@@ -51,7 +51,7 @@ function toFormValues(post?: AdminPostDetail): PostEditorFormValues {
     }
 }
 
-export function toSavePostInput(values: PostEditorFormValues): SavePostInput {
+export function toSavePostInput(values: PostEditorFormValues, isTemp: boolean): SavePostInput {
     return {
         title: values.title.trim(),
         urlSlug: values.urlSlug.trim(),
@@ -62,7 +62,7 @@ export function toSavePostInput(values: PostEditorFormValues): SavePostInput {
             .split(",")
             .map((tag) => tag.trim())
             .filter(Boolean),
-        isTemp: values.isTemp,
+        isTemp,
         isMain: values.isMain,
         mainOrder: values.mainOrder ? Number(values.mainOrder) : null,
         releasedAt: values.releasedAt ? new Date(values.releasedAt).toISOString() : null,
