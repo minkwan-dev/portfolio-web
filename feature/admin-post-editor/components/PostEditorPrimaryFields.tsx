@@ -42,7 +42,7 @@ export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrima
                     />
                 </div>
                 {tags.length > 0 ? (
-                    <div className="mt-3 flex flex-wrap gap-2 pl-5">
+                    <div className="mt-3 flex flex-wrap gap-2">
                         {tags.map((tag) => (
                             <span
                                 key={tag}
