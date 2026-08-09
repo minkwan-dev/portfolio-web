@@ -1,19 +1,28 @@
 import Link from "next/link"
+import { SITE_CONTAINER_CLASS } from "@/shared/constants/page-layout"
 
-const navItems = [
+const publicNavItems = [
     { key: "home" as const, label: "home", href: "/" },
     { key: "blog" as const, label: "blog", href: "/blog" },
 ]
 
-type SiteHeaderProps = {
-    active: "home" | "blog"
-}
+const adminNavItems = [
+    { key: "posts" as const, label: "글관리", href: "/admin/posts" },
+    { key: "site" as const, label: "사이트로", href: "/" },
+]
 
-export function SiteHeader({ active }: SiteHeaderProps) {
+type SiteHeaderProps =
+    | { variant?: "public"; active: "home" | "blog" }
+    | { variant: "admin"; active: "posts" }
+
+export function SiteHeader(props: SiteHeaderProps) {
+    const variant = props.variant ?? "public"
+    const navItems = variant === "admin" ? adminNavItems : publicNavItems
+
     return (
         <>
             <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-gray-300/70 bg-white/75 backdrop-blur-md">
-                <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
+                <div className={`flex items-center justify-between py-6 ${SITE_CONTAINER_CLASS}`}>
                     <Link
                         href="/"
                         className="font-mono text-[15px] font-semibold tracking-tight text-black"
@@ -23,7 +32,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
 
                     <nav className="flex items-center gap-1.5">
                         {navItems.map(({ key, label, href }) => {
-                            const isActive = active === key
+                            const isActive = props.active === key
 
                             return (
                                 <Link
