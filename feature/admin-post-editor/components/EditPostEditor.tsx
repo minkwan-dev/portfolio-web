@@ -1,44 +1,20 @@
 "use client"
 
-import { PostEditor } from "@/feature/admin-post-editor/components/PostEditor"
-import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
-import { useAdminPostEditorQuery } from "@/feature/admin-post-editor/api/useAdminPostEditorQuery"
-import { ErrorFallback } from "@/shared/components/ErrorFallback"
+import { EditPostEditorContent } from "@/feature/admin-post-editor/components/EditPostEditorContent"
+import { EditPostEditorSkeleton } from "@/feature/admin-post-editor/components/EditPostEditorSkeleton"
+import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 
 type EditPostEditorProps = {
     postId: number
 }
 
 export function EditPostEditor({ postId }: EditPostEditorProps) {
-    const { data: post, isLoading, isError, error, refetch } = useAdminPostEditorQuery(postId)
-
-    if (isLoading) {
-        return (
-            <PostEditorShell>
-                <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
-                    <div className="min-h-0 flex-1 animate-pulse bg-gray-100" />
-                    <div className="min-h-[24rem] flex-1 animate-pulse bg-gray-200 lg:min-h-0" />
-                </div>
-            </PostEditorShell>
-        )
-    }
-
-    if (isError || !post) {
-        return (
-            <PostEditorShell>
-                <div className="flex flex-1 items-center justify-center px-6 py-10">
-                    <ErrorFallback
-                        error={
-                            error instanceof Error ? error : new Error("글 정보를 불러오지 못했어요")
-                        }
-                        reset={() => void refetch()}
-                        variant="section"
-                        title="글 정보를 불러오지 못했어요"
-                    />
-                </div>
-            </PostEditorShell>
-        )
-    }
-
-    return <PostEditor key={post.id} post={post} />
+    return (
+        <AsyncBoundary
+            fallback={<EditPostEditorSkeleton />}
+            errorTitle="글 정보를 불러오지 못했어요"
+        >
+            <EditPostEditorContent postId={postId} />
+        </AsyncBoundary>
+    )
 }
