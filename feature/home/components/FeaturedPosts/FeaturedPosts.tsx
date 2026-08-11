@@ -1,8 +1,8 @@
 "use client"
 
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
-import { FeaturedPostsContent } from "@/feature/home/components/FeaturedPosts/FeaturedPostsContent"
-import { FeaturedPostsSkeleton } from "@/feature/home/components/FeaturedPosts/FeaturedPostsSkeleton"
+import { FeaturedPostsContent } from "@/feature/home/components/featuredPosts/FeaturedPostsContent"
+import { FeaturedPostsSkeleton } from "@/feature/home/components/featuredPosts/FeaturedPostsSkeleton"
 
 export function FeaturedPosts() {
     return (

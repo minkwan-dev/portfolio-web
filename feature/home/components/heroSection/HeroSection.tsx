@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Award, BookOpen, GraduationCap, Layers } from "lucide-react"
-import { InfoItem } from "@/feature/home/components/InfoItem"
+import { InfoItem } from "@/feature/home/components/heroSection/InfoItem"
 
 const certifications = ["SQLD", "ADsP", "정보처리기사"]
 

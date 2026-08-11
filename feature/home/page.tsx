@@ -1,6 +1,6 @@
-import { HeroSection } from "@/feature/home/components/HeroSection"
-import { FeaturedPosts } from "@/feature/home/components/FeaturedPosts/FeaturedPosts"
 import { PageShell } from "@/shared/components/PageShell"
+import { HeroSection } from "@/feature/home/components/heroSection/HeroSection"
+import { FeaturedPosts } from "@/feature/home/components/featuredPosts/FeaturedPosts"
 
 export default function HomePage() {
     return (

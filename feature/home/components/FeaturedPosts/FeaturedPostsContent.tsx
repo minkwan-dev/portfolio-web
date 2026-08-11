@@ -1,7 +1,7 @@
 "use client"
 
-import { FeaturedPostsHeader } from "@/feature/home/components/FeaturedPosts/FeaturedPostsHeader"
 import { PostCard } from "@/shared/components/PostCard"
+import { FeaturedPostsHeader } from "@/feature/home/components/featuredPosts/FeaturedPostsHeader"
 import { useMainPostsQuery } from "@/feature/home/api/useHomePostsQuery"
 
 export function FeaturedPostsContent() {
