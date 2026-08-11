@@ -7,10 +7,9 @@ import {
     deleteAdminPost,
     updateAdminPost,
 } from "@/feature/admin-post-editor/api/adminPostEditorApi"
-import { adminPostEditorKeys } from "@/feature/admin-post-editor/api/adminPostEditorQueryKeys"
 import type { SavePostInput } from "@/feature/admin-post-editor/model/post-editor.types"
-import { adminPostListKeys } from "@/feature/admin-post-list/api/adminPostListQueryKeys"
-import { blogListKeys } from "@/feature/blog-list/api/blogListQueryKeys"
+import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
+import { postQueryKeys } from "@/shared/api/postQueryKeys"
 
 type DeleteAdminPostMutationOptions = {
     redirectToList?: boolean
@@ -23,8 +22,8 @@ export function useCreateAdminPostMutation() {
     return useMutation({
         mutationFn: (input: SavePostInput) => createAdminPost(input),
         onSuccess: (post) => {
-            void queryClient.invalidateQueries({ queryKey: adminPostListKeys.all })
-            void queryClient.invalidateQueries({ queryKey: blogListKeys.all })
+            void queryClient.invalidateQueries({ queryKey: adminPostQueryKeys.all })
+            void queryClient.invalidateQueries({ queryKey: postQueryKeys.all })
             router.push(`/admin/posts/${post.id}/edit`)
         },
     })
@@ -36,9 +35,9 @@ export function useUpdateAdminPostMutation(postId: number) {
     return useMutation({
         mutationFn: (input: Partial<SavePostInput>) => updateAdminPost(postId, input),
         onSuccess: () => {
-            void queryClient.invalidateQueries({ queryKey: adminPostEditorKeys.detail(postId) })
-            void queryClient.invalidateQueries({ queryKey: adminPostListKeys.all })
-            void queryClient.invalidateQueries({ queryKey: blogListKeys.all })
+            void queryClient.invalidateQueries({ queryKey: adminPostQueryKeys.detail(postId) })
+            void queryClient.invalidateQueries({ queryKey: adminPostQueryKeys.all })
+            void queryClient.invalidateQueries({ queryKey: postQueryKeys.all })
         },
     })
 }
@@ -53,8 +52,8 @@ export function useDeleteAdminPostMutation(
     return useMutation({
         mutationFn: () => deleteAdminPost(postId),
         onSuccess: () => {
-            void queryClient.invalidateQueries({ queryKey: adminPostListKeys.all })
-            void queryClient.invalidateQueries({ queryKey: blogListKeys.all })
+            void queryClient.invalidateQueries({ queryKey: adminPostQueryKeys.all })
+            void queryClient.invalidateQueries({ queryKey: postQueryKeys.all })
 
             if (redirectToList) {
                 router.push("/admin/posts")

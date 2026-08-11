@@ -2,11 +2,11 @@
 
 import { useSuspenseQuery } from "@tanstack/react-query"
 import { getPostBySlug } from "@/feature/blog-detail/api/blogDetailApi"
-import { blogDetailKeys } from "@/feature/blog-detail/api/blogDetailQueryKeys"
+import { postQueryKeys } from "@/shared/api/postQueryKeys"
 
 export function usePostDetailQuery(slug: string) {
     return useSuspenseQuery({
-        queryKey: blogDetailKeys.detail(slug),
+        queryKey: postQueryKeys.detail(slug),
         queryFn: () => getPostBySlug(slug),
     })
 }

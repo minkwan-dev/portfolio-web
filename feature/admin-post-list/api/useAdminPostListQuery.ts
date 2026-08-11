@@ -2,11 +2,11 @@
 
 import { useSuspenseQuery } from "@tanstack/react-query"
 import { getAdminPosts } from "@/feature/admin-post-list/api/adminPostListApi"
-import { adminPostListKeys } from "@/feature/admin-post-list/api/adminPostListQueryKeys"
+import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 
 export function useAdminPostListQuery(page = 1) {
     return useSuspenseQuery({
-        queryKey: adminPostListKeys.list(page),
+        queryKey: adminPostQueryKeys.list(page),
         queryFn: () => getAdminPosts(page),
     })
 }

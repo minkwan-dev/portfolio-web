@@ -2,11 +2,11 @@
 
 import { useSuspenseQuery } from "@tanstack/react-query"
 import { getAdminPostById } from "@/feature/admin-post-editor/api/adminPostEditorApi"
-import { adminPostEditorKeys } from "@/feature/admin-post-editor/api/adminPostEditorQueryKeys"
+import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 
 export function useAdminPostEditorQuery(postId: number) {
     return useSuspenseQuery({
-        queryKey: adminPostEditorKeys.detail(postId),
+        queryKey: adminPostQueryKeys.detail(postId),
         queryFn: () => getAdminPostById(postId),
     })
 }
