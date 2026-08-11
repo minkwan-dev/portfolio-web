@@ -22,7 +22,3 @@ export async function updateAdminPost(
     const response = await api.patch<AdminPostDetailResponse>(`/admin/posts/${id}`, input)
     return response.data.data
 }
-
-export async function deleteAdminPost(id: number): Promise<void> {
-    await api.delete(`/admin/posts/${id}`)
-}

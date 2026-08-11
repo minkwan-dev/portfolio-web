@@ -4,10 +4,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import {
     createAdminPost,
-    deleteAdminPost,
     updateAdminPost,
 } from "@/feature/admin-post-editor/api/adminPostEditorApi"
 import type { SavePostInput } from "@/feature/admin-post-editor/model/post-editor.types"
+import { deleteAdminPost } from "@/shared/api/adminPostApi"
 import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 import { postQueryKeys } from "@/shared/api/postQueryKeys"
 
