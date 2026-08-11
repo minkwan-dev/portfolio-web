@@ -2,6 +2,7 @@
 
 import { PostCard } from "@/shared/components/PostCard"
 import { usePostsInfiniteQuery } from "@/feature/blog-list/api/useBlogListQuery"
+import { PostListLoadMoreButton } from "@/feature/blog-list/components/PostListLoadMoreButton"
 
 export function PostListContent() {
     const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery()
@@ -16,18 +17,12 @@ export function PostListContent() {
                 ))}
             </div>
 
-            {hasNextPage ? (
-                <div className="flex justify-center">
-                    <button
-                        type="button"
-                        onClick={() => fetchNextPage()}
-                        disabled={isFetchingNextPage}
-                        className="rounded-xl border border-gray-200 px-4 py-2 text-sm text-gray-700 transition-colors hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                        {isFetchingNextPage ? "불러오는 중..." : "더 보기"}
-                    </button>
-                </div>
-            ) : null}
+            {hasNextPage && (
+                <PostListLoadMoreButton
+                    onClick={() => fetchNextPage()}
+                    isLoading={isFetchingNextPage}
+                />
+            )}
         </div>
     )
 }
