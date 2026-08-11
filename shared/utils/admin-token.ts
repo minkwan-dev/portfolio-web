@@ -1,4 +1,4 @@
-import { ADMIN_TOKEN_STORAGE_KEY } from "@/shared/constants/admin-auth"
+const ADMIN_TOKEN_STORAGE_KEY = "admin_api_token"
 
 export function getAdminToken(): string | null {
     if (typeof window === "undefined") return null

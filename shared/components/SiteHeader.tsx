@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { SITE_CONTAINER_CLASS } from "@/shared/constants/page-layout"
 
 const publicNavItems = [
     { key: "home" as const, label: "home", href: "/" },
@@ -22,7 +21,7 @@ export function SiteHeader(props: SiteHeaderProps) {
     return (
         <>
             <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-gray-300/70 bg-white/75 backdrop-blur-md">
-                <div className={`flex items-center justify-between py-6 ${SITE_CONTAINER_CLASS}`}>
+                <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
                     <Link
                         href="/"
                         className="font-mono text-[15px] font-semibold tracking-tight text-black"
