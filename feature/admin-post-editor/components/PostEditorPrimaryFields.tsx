@@ -1,6 +1,8 @@
 "use client"
 
+import { PostEditorTagList } from "@/feature/admin-post-editor/components/PostEditorTagList"
 import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import { parseEditorTags } from "@/feature/admin-post-editor/utils/parse-editor-tags"
 
 type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
     key: K,
@@ -12,15 +14,8 @@ type PostEditorPrimaryFieldsProps = {
     updateField: PostEditorFieldUpdater
 }
 
-function parseTags(raw: string): string[] {
-    return raw
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean)
-}
-
 export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrimaryFieldsProps) {
-    const tags = parseTags(values.tags)
+    const tags = parseEditorTags(values.tags)
 
     return (
         <div className="flex flex-col">
@@ -41,18 +36,7 @@ export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrima
                         className="flex-1 border-0 bg-transparent text-sm outline-none placeholder:text-gray-400"
                     />
                 </div>
-                {tags.length > 0 ? (
-                    <div className="mt-3 flex flex-wrap gap-2">
-                        {tags.map((tag) => (
-                            <span
-                                key={tag}
-                                className="rounded-full bg-gray-100 px-2.5 py-1 text-xs text-gray-600"
-                            >
-                                #{tag}
-                            </span>
-                        ))}
-                    </div>
-                ) : null}
+                <PostEditorTagList tags={tags} />
             </div>
 
             <textarea

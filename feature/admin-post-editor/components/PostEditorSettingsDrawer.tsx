@@ -1,5 +1,6 @@
 "use client"
 
+import { PostEditorSettingsDeleteButton } from "@/feature/admin-post-editor/components/PostEditorSettingsDeleteButton"
 import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
 
 type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
@@ -90,17 +91,7 @@ export function PostEditorSettingsDrawer({
                     </div>
                 </div>
 
-                {onDelete ? (
-                    <div className="border-t border-gray-200 px-6 py-4">
-                        <button
-                            type="button"
-                            onClick={onDelete}
-                            className="text-sm text-red-500 hover:text-red-600"
-                        >
-                            글 삭제
-                        </button>
-                    </div>
-                ) : null}
+                {onDelete && <PostEditorSettingsDeleteButton onDelete={onDelete} />}
             </aside>
         </div>
     )
