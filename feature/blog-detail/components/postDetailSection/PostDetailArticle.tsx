@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { PostMarkdownBody } from "@/feature/blog-detail/components/PostMarkdownBody"
+import { PostMarkdownBody } from "@/feature/blog-detail/components/postDetailSection/PostMarkdownBody"
 import { resolvePostDetailDisplay } from "@/feature/blog-detail/utils/dedupe-thumbnail"
 import { formatPostDate } from "@/shared/utils/format-date"
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { PostDetailArticle } from "@/feature/blog-detail/components/PostDetailArticle"
+import { PostDetailArticle } from "@/feature/blog-detail/components/postDetailSection/PostDetailArticle"
 import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
 import { POST_DETAIL_CONTAINER_CLASS } from "@/shared/constants/page-layout"
 

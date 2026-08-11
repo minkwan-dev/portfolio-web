@@ -1,4 +1,4 @@
-import { CommentListSkeleton } from "@/feature/blog-detail/components/comments/CommentListSkeleton"
+import { CommentListSkeleton } from "@/feature/blog-detail/components/commentSection/CommentListSkeleton"
 
 export function CommentSectionSkeleton() {
     return (

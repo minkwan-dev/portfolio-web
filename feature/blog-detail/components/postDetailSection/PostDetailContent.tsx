@@ -1,6 +1,6 @@
 "use client"
 
-import { PostDetailArticle } from "@/feature/blog-detail/components/PostDetailArticle"
+import { PostDetailArticle } from "@/feature/blog-detail/components/postDetailSection/PostDetailArticle"
 import { usePostDetailQuery } from "@/feature/blog-detail/api/useBlogDetailQuery"
 
 type PostDetailContentProps = {
