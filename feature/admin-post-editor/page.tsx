@@ -8,5 +8,7 @@ type AdminPostEditorPageProps = {
 export default function AdminPostEditorPage({ postId }: AdminPostEditorPageProps) {
     const isEditMode = typeof postId === "number" && !Number.isNaN(postId)
 
-    return isEditMode ? <EditPostEditor postId={postId} /> : <PostEditor />
+    return isEditMode 
+        ? <EditPostEditor postId={postId} /> 
+        : <PostEditor />
 }
