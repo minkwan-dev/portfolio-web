@@ -1,57 +1,30 @@
 "use client"
 
-import { SubmitEvent, useState } from "react"
-import { useCreateCommentMutation } from "@/feature/blog-detail/api/useCommentsQuery"
-import { useCommentIdentity } from "@/feature/blog-detail/hooks/useCommentIdentity"
+import { CommentIdentityBar } from "@/feature/blog-detail/components/commentSection/CommentIdentityBar"
+import { useCommentForm } from "@/feature/blog-detail/hooks/useCommentForm"
 
 type CommentFormProps = {
     postSlug: string
 }
 
 export function CommentForm({ postSlug }: CommentFormProps) {
-    const { identity, refresh, isLoading: isIdentityLoading } = useCommentIdentity()
-    const mutation = useCreateCommentMutation(postSlug)
-    const [body, setBody] = useState("")
-
-    const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        if (!identity || !body.trim()) return
-
-        mutation.mutate({
-            body: body.trim(),
-            nickname: identity.nickname,
-            avatar: identity.avatar,
-        })
-
-        setBody("")
-    }
-
-    const canSubmit = Boolean(identity && body.trim() && !mutation.isPending)
+    const {
+        identity,
+        body,
+        setBody,
+        refresh,
+        isIdentityLoading,
+        handleSubmit,
+        canSubmit,
+    } = useCommentForm(postSlug)
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-2xl border border-gray-200 p-4">
-            <div className="flex items-center gap-3">
-                {identity ? (
-                    <img
-                        src={identity.avatar}
-                        alt=""
-                        className="h-10 w-10 rounded-full border border-gray-200 bg-gray-50"
-                    />
-                ) : (
-                    <div className="h-10 w-10 animate-pulse rounded-full bg-gray-100" />
-                )}
-                <span className="text-sm font-medium text-gray-800">
-                    {identity?.nickname ?? "프로필 준비 중…"}
-                </span>
-                <button
-                    type="button"
-                    onClick={() => refresh()}
-                    disabled={isIdentityLoading}
-                    className="ml-auto text-sm text-gray-500 underline-offset-2 hover:underline disabled:opacity-50"
-                >
-                    랜덤 변경
-                </button>
-            </div>
+            <CommentIdentityBar
+                identity={identity}
+                isLoading={isIdentityLoading}
+                onRefresh={refresh}
+            />
 
             <textarea
                 value={body}
