@@ -5,6 +5,24 @@ import { PostMarkdownBody } from "@/feature/blog-detail/components/postDetailSec
 import { resolvePostDetailDisplay } from "@/feature/blog-detail/utils/dedupe-thumbnail"
 import { formatPostDate } from "@/shared/utils/format-date"
 
+type PostDetailBodyProps = {
+    body: string
+    displayBody: string
+    emptyBodyMessage?: string
+}
+
+function PostDetailBody({ body, displayBody, emptyBodyMessage }: PostDetailBodyProps) {
+    if (body.trim()) {
+        return <PostMarkdownBody content={displayBody} />
+    }
+
+    if (emptyBodyMessage) {
+        return <p className="text-sm text-gray-400">{emptyBodyMessage}</p>
+    }
+
+    return null
+}
+
 type PostDetailArticleProps = {
     title: string
     releasedAt: string | null
@@ -29,9 +47,9 @@ export function PostDetailArticle({
                 <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
                     {title}
                 </h1>
-                {formattedDate ? (
+                {formattedDate && (
                     <p className="text-sm text-gray-500">{formattedDate}</p>
-                ) : null}
+                )}
             </header>
 
             <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl bg-gray-100">
@@ -45,11 +63,11 @@ export function PostDetailArticle({
                 />
             </div>
 
-            {body.trim() ? (
-                <PostMarkdownBody content={displayBody} />
-            ) : emptyBodyMessage ? (
-                <p className="text-sm text-gray-400">{emptyBodyMessage}</p>
-            ) : null}
+            <PostDetailBody
+                body={body}
+                displayBody={displayBody}
+                emptyBodyMessage={emptyBodyMessage}
+            />
         </article>
     )
 }
