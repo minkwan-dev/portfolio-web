@@ -9,7 +9,6 @@ export function usePostsInfiniteQuery() {
         queryKey: blogListKeys.infinite(),
         queryFn: getPostsPageForInfiniteQuery,
         initialPageParam: 1,
-        getNextPageParam: (lastPage) =>
-            lastPage.meta.hasNextPage ? lastPage.meta.page + 1 : undefined,
+        getNextPageParam: (lastPage) => lastPage.meta.hasNextPage ? lastPage.meta.page + 1 : undefined,
     })
 }

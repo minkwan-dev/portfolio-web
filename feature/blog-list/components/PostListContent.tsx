@@ -4,8 +4,7 @@ import { PostCard } from "@/shared/components/PostCard"
 import { usePostsInfiniteQuery } from "@/feature/blog-list/api/useBlogListQuery"
 
 export function PostListContent() {
-    const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-        usePostsInfiniteQuery()
+    const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery()
 
     const posts = data.pages.flatMap((page) => page.posts)
 
