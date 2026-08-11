@@ -1,6 +1,6 @@
 "use client"
 
-import { PostDetailArticle } from "@/feature/blog-detail/components/postDetailSection/PostDetailArticle"
+import { PostArticle } from "@/shared/components/post/PostArticle"
 import { usePostDetailQuery } from "@/feature/blog-detail/api/useBlogDetailQuery"
 
 type PostDetailContentProps = {
@@ -11,7 +11,7 @@ export function PostDetailContent({ slug }: PostDetailContentProps) {
     const { data: post } = usePostDetailQuery(slug)
 
     return (
-        <PostDetailArticle
+        <PostArticle
             title={post.title}
             releasedAt={post.releasedAt}
             thumbnail={post.thumbnail}

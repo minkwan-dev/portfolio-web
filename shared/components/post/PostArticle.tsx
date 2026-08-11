@@ -1,17 +1,17 @@
 "use client"
 
 import Image from "next/image"
-import { PostMarkdownBody } from "@/feature/blog-detail/components/postDetailSection/PostMarkdownBody"
-import { resolvePostDetailDisplay } from "@/feature/blog-detail/utils/dedupe-thumbnail"
+import { PostMarkdownBody } from "@/shared/components/post/PostMarkdownBody"
+import { resolvePostDetailDisplay } from "@/shared/utils/dedupe-thumbnail"
 import { formatPostDate } from "@/shared/utils/format-date"
 
-type PostDetailBodyProps = {
+type PostArticleBodyProps = {
     body: string
     displayBody: string
     emptyBodyMessage?: string
 }
 
-function PostDetailBody({ body, displayBody, emptyBodyMessage }: PostDetailBodyProps) {
+function PostArticleBody({ body, displayBody, emptyBodyMessage }: PostArticleBodyProps) {
     if (body.trim()) {
         return <PostMarkdownBody content={displayBody} />
     }
@@ -23,7 +23,7 @@ function PostDetailBody({ body, displayBody, emptyBodyMessage }: PostDetailBodyP
     return null
 }
 
-type PostDetailArticleProps = {
+type PostArticleProps = {
     title: string
     releasedAt: string | null
     thumbnail: string | null
@@ -31,13 +31,13 @@ type PostDetailArticleProps = {
     emptyBodyMessage?: string
 }
 
-export function PostDetailArticle({
+export function PostArticle({
     title,
     releasedAt,
     thumbnail,
     body,
     emptyBodyMessage,
-}: PostDetailArticleProps) {
+}: PostArticleProps) {
     const formattedDate = formatPostDate(releasedAt)
     const { heroSrc, body: displayBody, isFallback } = resolvePostDetailDisplay(thumbnail, body)
 
@@ -63,7 +63,7 @@ export function PostDetailArticle({
                 />
             </div>
 
-            <PostDetailBody
+            <PostArticleBody
                 body={body}
                 displayBody={displayBody}
                 emptyBodyMessage={emptyBodyMessage}

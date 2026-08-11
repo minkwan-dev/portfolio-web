@@ -7,7 +7,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
 import {
     extractMarkdownCodeString,
     resolveMarkdownLanguage,
-} from "@/feature/blog-detail/utils/markdown-code"
+} from "@/shared/utils/markdown-code"
 
 export const postMarkdownComponents: Components = {
     h1({ children }) {
