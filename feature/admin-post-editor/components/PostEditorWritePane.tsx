@@ -1,0 +1,38 @@
+import { PostEditorFields } from "@/feature/admin-post-editor/components/PostEditorFields"
+import { PostEditorWriteFooter } from "@/feature/admin-post-editor/components/PostEditorWriteFooter"
+import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+
+type PostEditorWritePaneProps = {
+    values: PostEditorFormValues
+    updateField: <K extends keyof PostEditorFormValues>(
+        key: K,
+        value: PostEditorFormValues[K],
+    ) => void
+    isPending: boolean
+    onOpenSettings: () => void
+    onSaveDraft: () => void
+    onPublish: () => void
+}
+
+export function PostEditorWritePane({
+    values,
+    updateField,
+    isPending,
+    onOpenSettings,
+    onSaveDraft,
+    onPublish,
+}: PostEditorWritePaneProps) {
+    return (
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-white lg:border-r lg:border-gray-200">
+            <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-8">
+                <PostEditorFields values={values} updateField={updateField} />
+            </div>
+            <PostEditorWriteFooter
+                isPending={isPending}
+                onOpenSettings={onOpenSettings}
+                onSaveDraft={onSaveDraft}
+                onPublish={onPublish}
+            />
+        </div>
+    )
+}
