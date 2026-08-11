@@ -1,15 +1,15 @@
 "use client"
 
-import { PostEditorLayout } from "@/feature/admin-post-editor/components/PostEditorLayout"
+import { PostEditor } from "@/feature/admin-post-editor/components/PostEditor"
 import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
 import { useAdminPostEditorQuery } from "@/feature/admin-post-editor/api/useAdminPostEditorQuery"
 import { ErrorFallback } from "@/shared/components/ErrorFallback"
 
-type PostEditorSectionProps = {
+type EditPostEditorProps = {
     postId: number
 }
 
-export function PostEditorSection({ postId }: PostEditorSectionProps) {
+export function EditPostEditor({ postId }: EditPostEditorProps) {
     const { data: post, isLoading, isError, error, refetch } = useAdminPostEditorQuery(postId)
 
     if (isLoading) {
@@ -40,5 +40,5 @@ export function PostEditorSection({ postId }: PostEditorSectionProps) {
         )
     }
 
-    return <PostEditorLayout key={post.id} post={post} />
+    return <PostEditor key={post.id} post={post} />
 }

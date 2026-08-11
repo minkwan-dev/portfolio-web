@@ -21,11 +21,11 @@ import { useSaveDraftShortcut } from "@/feature/admin-post-editor/hooks/useSaveD
 import { ConfirmModal } from "@/shared/components/ConfirmModal"
 import { useToast } from "@/shared/providers/ToastProvider"
 
-type PostEditorLayoutProps = {
+type PostEditorProps = {
     post?: AdminPostDetail
 }
 
-export function PostEditorLayout({ post }: PostEditorLayoutProps) {
+export function PostEditor({ post }: PostEditorProps) {
     const [settingsOpen, setSettingsOpen] = useState(false)
     const [publishModalOpen, setPublishModalOpen] = useState(false)
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
