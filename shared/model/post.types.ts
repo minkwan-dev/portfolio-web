@@ -21,8 +21,6 @@ export type PostDetail = PostListItem & {
 export type PostsPaginationMeta = {
     page: number
     limit: number
-    total: number
-    totalPages: number
     hasNextPage: boolean
 }
 
