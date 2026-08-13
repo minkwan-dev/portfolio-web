@@ -13,7 +13,7 @@ export function PostEditorPreview({ values }: PostEditorPreviewProps) {
             <div className="mx-auto w-full max-w-[800px] px-6">
                 <PostArticle
                     title={values.title.trim() || "제목 없음"}
-                    releasedAt={values.releasedAt || null}
+                    releasedAt={null}
                     thumbnail={values.thumbnail || null}
                     body={values.body}
                     emptyBodyMessage="본문을 입력하면 미리보기가 표시됩니다."
