@@ -1,7 +1,7 @@
 "use client"
 
 import { useSuspenseQuery } from "@tanstack/react-query"
-import { getAdminPostById } from "@/feature/admin-post-editor/api/adminPostEditorApi"
+import { getAdminPostById } from "@/shared/api/adminPostApi"
 import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 
 export function useAdminPostEditorQuery(postId: number) {

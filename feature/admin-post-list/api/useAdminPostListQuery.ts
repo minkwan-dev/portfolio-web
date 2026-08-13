@@ -1,7 +1,7 @@
 "use client"
 
 import { useSuspenseQuery } from "@tanstack/react-query"
-import { getAdminPosts } from "@/feature/admin-post-list/api/adminPostListApi"
+import { getAdminPosts } from "@/shared/api/adminPostApi"
 import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 
 export function useAdminPostListQuery(page = 1) {
