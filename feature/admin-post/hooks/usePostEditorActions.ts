@@ -28,7 +28,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
         createMutation.isPending || updateMutation.isPending || deleteMutation.isPending
 
     const handleMutationError = useCallback(() => {
-        showToast({ message: "??? ???? ????. ?? ??? ???.", variant: "error" })
+        showToast({ message: "요청을 처리하지 못했어요. 다시 시도해 주세요.", variant: "error" })
     }, [showToast])
 
     const savePost = useCallback(
@@ -59,7 +59,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
         if (isPending) return
 
         savePost(true, () => {
-            showToast({ message: "???? ?????????." })
+            showToast({ message: "포스트가 임시저장되었습니다." })
         })
     }, [isPending, savePost, showToast])
 
@@ -75,7 +75,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
 
     const publish = useCallback(() => {
         savePost(false, () => {
-            showToast({ message: "?? ???????." })
+            showToast({ message: "글이 출간되었습니다." })
             modals.closePublishModal()
         })
     }, [modals, savePost, showToast])

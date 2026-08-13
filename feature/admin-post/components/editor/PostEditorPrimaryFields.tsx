@@ -22,7 +22,7 @@ export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrima
             <input
                 value={values.title}
                 onChange={(e) => updateField("title", e.target.value)}
-                placeholder="??? ?????"
+                placeholder="제목을 입력하세요"
                 className="w-full border-0 bg-transparent pb-4 text-3xl font-bold tracking-tight outline-none placeholder:text-gray-300"
             />
 
@@ -32,7 +32,7 @@ export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrima
                     <input
                         value={values.tags}
                         onChange={(e) => updateField("tags", e.target.value)}
-                        placeholder="??? ????? (?? ??)"
+                        placeholder="태그를 입력하세요 (쉼표 구분)"
                         className="flex-1 border-0 bg-transparent text-sm outline-none placeholder:text-gray-400"
                     />
                 </div>
@@ -42,7 +42,7 @@ export function PostEditorPrimaryFields({ values, updateField }: PostEditorPrima
             <textarea
                 value={values.body}
                 onChange={(e) => updateField("body", e.target.value)}
-                placeholder="??? ????? (Markdown)"
+                placeholder="본문을 입력하세요 (Markdown)"
                 className="min-h-[calc(100vh-16rem)] w-full resize-none border-0 bg-transparent py-6 font-mono text-sm leading-relaxed outline-none placeholder:text-gray-400"
             />
         </div>

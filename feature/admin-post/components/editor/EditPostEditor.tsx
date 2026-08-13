@@ -19,7 +19,7 @@ export function EditPostEditor({ postId }: EditPostEditorProps) {
     return (
         <AsyncBoundary
             fallback={<EditPostEditorSkeleton />}
-            errorTitle="? ??? ???? ????"
+            errorTitle="글 정보를 불러오지 못했어요"
         >
             <EditPostEditorLoaded postId={postId} />
         </AsyncBoundary>
