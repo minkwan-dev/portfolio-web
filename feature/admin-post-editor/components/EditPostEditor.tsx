@@ -1,11 +1,18 @@
 "use client"
 
-import { EditPostEditorContent } from "@/feature/admin-post-editor/components/EditPostEditorContent"
+import { useAdminPostEditorQuery } from "@/feature/admin-post-editor/api/useAdminPostEditorQuery"
 import { EditPostEditorSkeleton } from "@/feature/admin-post-editor/components/EditPostEditorSkeleton"
+import { PostEditor } from "@/feature/admin-post-editor/components/PostEditor"
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 
 type EditPostEditorProps = {
     postId: number
+}
+
+function EditPostEditorLoaded({ postId }: EditPostEditorProps) {
+    const { data: post } = useAdminPostEditorQuery(postId)
+
+    return <PostEditor key={post.id} post={post} />
 }
 
 export function EditPostEditor({ postId }: EditPostEditorProps) {
@@ -14,7 +21,7 @@ export function EditPostEditor({ postId }: EditPostEditorProps) {
             fallback={<EditPostEditorSkeleton />}
             errorTitle="글 정보를 불러오지 못했어요"
         >
-            <EditPostEditorContent postId={postId} />
+            <EditPostEditorLoaded postId={postId} />
         </AsyncBoundary>
     )
 }

@@ -1,4 +1,4 @@
-import { PostEditorFields } from "@/feature/admin-post-editor/components/PostEditorFields"
+import { PostEditorPrimaryFields } from "@/feature/admin-post-editor/components/PostEditorPrimaryFields"
 import { PostEditorWriteFooter } from "@/feature/admin-post-editor/components/PostEditorWriteFooter"
 import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
@@ -25,7 +25,7 @@ export function PostEditorWritePane({
     return (
         <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-white lg:border-r lg:border-gray-200">
             <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-8">
-                <PostEditorFields values={values} updateField={updateField} />
+                <PostEditorPrimaryFields values={values} updateField={updateField} />
             </div>
             <PostEditorWriteFooter
                 isPending={isPending}
