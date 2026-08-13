@@ -18,11 +18,13 @@ export function PostEditor({ post }: PostEditorProps) {
         updateField,
         isPending,
         isDeleting,
+        canDelete,
         publishModalOpen,
         openPublishModal,
         closePublishModal,
         publish,
         deleteModalOpen,
+        openDeleteModal,
         closeDeleteModal,
         confirmDelete,
         saveDraft,
@@ -35,6 +37,8 @@ export function PostEditor({ post }: PostEditorProps) {
                     values={values}
                     updateField={updateField}
                     isPending={isPending}
+                    canDelete={canDelete}
+                    onDelete={openDeleteModal}
                     onSaveDraft={saveDraft}
                     onPublish={openPublishModal}
                 />

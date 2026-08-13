@@ -9,6 +9,8 @@ type PostEditorWritePaneProps = {
         value: PostEditorFormValues[K],
     ) => void
     isPending: boolean
+    canDelete: boolean
+    onDelete: () => void
     onSaveDraft: () => void
     onPublish: () => void
 }
@@ -17,6 +19,8 @@ export function PostEditorWritePane({
     values,
     updateField,
     isPending,
+    canDelete,
+    onDelete,
     onSaveDraft,
     onPublish,
 }: PostEditorWritePaneProps) {
@@ -27,6 +31,8 @@ export function PostEditorWritePane({
             </div>
             <PostEditorWriteFooter
                 isPending={isPending}
+                canDelete={canDelete}
+                onDelete={onDelete}
                 onSaveDraft={onSaveDraft}
                 onPublish={onPublish}
             />
