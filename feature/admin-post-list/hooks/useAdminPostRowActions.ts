@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { useDeleteAdminPostMutation } from "@/feature/admin-post-list/api/useDeleteAdminPostMutation"
+import { useDeleteAdminPostMutation } from "@/feature/admin-post-editor/api/useAdminPostMutations"
 import { useToast } from "@/shared/providers/ToastProvider"
 
 export function useAdminPostRowActions(postId: number) {
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const { showToast } = useToast()
-    const deleteMutation = useDeleteAdminPostMutation(postId)
+    const deleteMutation = useDeleteAdminPostMutation(postId, { redirectToList: false })
 
     const openDeleteModal = () => {
         setDeleteModalOpen(true)
