@@ -28,7 +28,7 @@ export function toSavePostInput(values: PostEditorFormValues, isTemp: boolean): 
     const trimmedTitle = values.title.trim()
 
     return {
-        title: trimmedTitle || (isTemp ? "?? ??" : ""),
+        title: trimmedTitle || (isTemp ? "제목 없음" : ""),
         thumbnail: values.thumbnail.trim() || null,
         body: values.body.trim() || (isTemp ? " " : ""),
         tags: values.tags
