@@ -1,7 +1,7 @@
 "use client"
 
 import { PostArticle } from "@/shared/components/post/PostArticle"
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorPreviewProps = {
     values: PostEditorFormValues

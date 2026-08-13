@@ -7,7 +7,7 @@ import { PostEditorSettingsDrawer } from "@/feature/admin-post-editor/components
 import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
 import { PostEditorWritePane } from "@/feature/admin-post-editor/components/PostEditorWritePane"
 import { usePostEditor } from "@/feature/admin-post-editor/hooks/usePostEditor"
-import type { AdminPostDetail } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { AdminPostDetail } from "@/shared/model/admin-post.types"
 
 type PostEditorProps = {
     post?: AdminPostDetail

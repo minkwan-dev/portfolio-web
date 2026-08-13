@@ -6,12 +6,10 @@ import {
     useDeleteAdminPostMutation,
     useUpdateAdminPostMutation,
 } from "@/feature/admin-post-editor/api/useAdminPostMutations"
-import {
-    toSavePostInput,
-    usePostEditorForm,
-} from "@/feature/admin-post-editor/hooks/usePostEditorForm"
+import { toSavePostInput } from "@/feature/admin-post-editor/utils/admin-post.mapper"
+import { usePostEditorForm } from "@/feature/admin-post-editor/hooks/usePostEditorForm"
 import { useSaveDraftShortcut } from "@/feature/admin-post-editor/hooks/useSaveDraftShortcut"
-import type { AdminPostDetail } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { AdminPostDetail } from "@/shared/model/admin-post.types"
 import { validateForPublish } from "@/feature/admin-post-editor/utils/validate-for-publish"
 import { useToast } from "@/shared/providers/ToastProvider"
 

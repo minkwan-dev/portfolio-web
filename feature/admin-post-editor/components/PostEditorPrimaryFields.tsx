@@ -1,7 +1,7 @@
 "use client"
 
 import { PostEditorTagList } from "@/feature/admin-post-editor/components/PostEditorTagList"
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 import { parseEditorTags } from "@/feature/admin-post-editor/utils/parse-editor-tags"
 
 type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(

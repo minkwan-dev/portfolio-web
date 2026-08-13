@@ -1,6 +1,6 @@
 import { PostEditorFields } from "@/feature/admin-post-editor/components/PostEditorFields"
 import { PostEditorWriteFooter } from "@/feature/admin-post-editor/components/PostEditorWriteFooter"
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorWritePaneProps = {
     values: PostEditorFormValues

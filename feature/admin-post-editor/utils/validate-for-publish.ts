@@ -1,4 +1,4 @@
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 export function validateForPublish(values: PostEditorFormValues): string | null {
     if (!values.title.trim()) {

@@ -1,7 +1,7 @@
 "use client"
 
 import { PostEditorSettingsDeleteButton } from "@/feature/admin-post-editor/components/PostEditorSettingsDeleteButton"
-import type { PostEditorFormValues } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
     key: K,

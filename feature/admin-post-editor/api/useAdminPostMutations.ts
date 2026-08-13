@@ -7,7 +7,7 @@ import {
     deleteAdminPost,
     updateAdminPost,
 } from "@/shared/api/adminPostApi"
-import type { SavePostInput } from "@/feature/admin-post-editor/model/post-editor.types"
+import type { SavePostInput } from "@/shared/model/admin-post.types"
 import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
 import { postQueryKeys } from "@/shared/api/postQueryKeys"
 

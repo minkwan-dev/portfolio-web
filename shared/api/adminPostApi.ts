@@ -2,9 +2,9 @@ import { api } from "@/shared/api/axiosInstance"
 import type {
     AdminPostDetail,
     AdminPostDetailResponse,
+    AdminPostsResponse,
     SavePostInput,
-} from "@/feature/admin-post-editor/model/post-editor.types"
-import type { AdminPostsResponse } from "@/feature/admin-post-list/model/admin-post.types"
+} from "@/shared/model/admin-post.types"
 
 export async function getAdminPosts(page = 1): Promise<AdminPostsResponse> {
     const response = await api.get<AdminPostsResponse>("/admin/posts", {

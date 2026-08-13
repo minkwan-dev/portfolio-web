@@ -1,6 +1,6 @@
 "use client"
 
-import type { AdminPostsPaginationMeta } from "@/feature/admin-post-list/model/admin-post.types"
+import type { AdminPostsPaginationMeta } from "@/shared/model/admin-post.types"
 
 type AdminPostListPaginationProps = {
     meta: AdminPostsPaginationMeta

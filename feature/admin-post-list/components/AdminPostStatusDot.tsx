@@ -1,4 +1,4 @@
-import type { AdminPostListItem } from "@/feature/admin-post-list/model/admin-post.types"
+import type { AdminPostListItem } from "@/shared/model/admin-post.types"
 
 type PostStatus = {
     label: "임시" | "발행" | "메인"
