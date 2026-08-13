@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useDeleteAdminPostMutation } from "@/feature/admin-post-editor/api/useAdminPostMutations"
+import { useDeleteAdminPostMutation } from "@/feature/admin-post/api/useAdminPostMutations"
 import { useToast } from "@/shared/providers/ToastProvider"
 
 export function useAdminPostRowActions(postId: number) {
@@ -24,7 +24,7 @@ export function useAdminPostRowActions(postId: number) {
             },
             onError: () => {
                 showToast({
-                    message: "글을 삭제하지 못했어요. 다시 시도해 주세요.",
+                    message: "?? ???? ????. ?? ??? ???.",
                     variant: "error",
                 })
             },

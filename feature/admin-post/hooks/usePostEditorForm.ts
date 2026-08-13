@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { toFormValues } from "@/feature/admin-post-editor/utils/admin-post.mapper"
+import { toFormValues } from "@/feature/admin-post/utils/admin-post.mapper"
 import type {
     AdminPostDetail,
     PostEditorFormValues,

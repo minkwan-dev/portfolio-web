@@ -1,8 +1,8 @@
 "use client"
 
-import { useAdminPostEditorQuery } from "@/feature/admin-post-editor/api/useAdminPostEditorQuery"
-import { EditPostEditorSkeleton } from "@/feature/admin-post-editor/components/EditPostEditorSkeleton"
-import { PostEditor } from "@/feature/admin-post-editor/components/PostEditor"
+import { useAdminPostEditorQuery } from "@/feature/admin-post/api/useAdminPostEditorQuery"
+import { EditPostEditorSkeleton } from "@/feature/admin-post/components/editor/EditPostEditorSkeleton"
+import { PostEditor } from "@/feature/admin-post/components/editor/PostEditor"
 import { AsyncBoundary } from "@/shared/components/AsyncBoundary"
 
 type EditPostEditorProps = {
@@ -19,7 +19,7 @@ export function EditPostEditor({ postId }: EditPostEditorProps) {
     return (
         <AsyncBoundary
             fallback={<EditPostEditorSkeleton />}
-            errorTitle="글 정보를 불러오지 못했어요"
+            errorTitle="? ??? ???? ????"
         >
             <EditPostEditorLoaded postId={postId} />
         </AsyncBoundary>

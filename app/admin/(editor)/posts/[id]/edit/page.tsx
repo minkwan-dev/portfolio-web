@@ -1,4 +1,4 @@
-import AdminPostEditorPage from "@/feature/admin-post-editor/page"
+import AdminPostEditorPage from "@/feature/admin-post/editor-page"
 
 type Props = {
     params: Promise<{ id: string }>

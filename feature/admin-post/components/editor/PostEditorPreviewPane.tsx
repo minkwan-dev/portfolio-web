@@ -1,4 +1,4 @@
-import { PostEditorPreview } from "@/feature/admin-post-editor/components/PostEditorPreview"
+import { PostEditorPreview } from "@/feature/admin-post/components/editor/PostEditorPreview"
 import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorPreviewPaneProps = {

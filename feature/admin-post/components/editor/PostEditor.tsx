@@ -1,12 +1,12 @@
 "use client"
 
-import { PostEditorDeleteModal } from "@/feature/admin-post-editor/components/PostEditorDeleteModal"
-import { PostEditorPreviewPane } from "@/feature/admin-post-editor/components/PostEditorPreviewPane"
-import { PostEditorPublishModal } from "@/feature/admin-post-editor/components/PostEditorPublishModal"
-import { PostEditorSettingsDrawer } from "@/feature/admin-post-editor/components/PostEditorSettingsDrawer"
-import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
-import { PostEditorWritePane } from "@/feature/admin-post-editor/components/PostEditorWritePane"
-import { usePostEditor } from "@/feature/admin-post-editor/hooks/usePostEditor"
+import { PostEditorDeleteModal } from "@/feature/admin-post/components/editor/PostEditorDeleteModal"
+import { PostEditorPreviewPane } from "@/feature/admin-post/components/editor/PostEditorPreviewPane"
+import { PostEditorPublishModal } from "@/feature/admin-post/components/editor/PostEditorPublishModal"
+import { PostEditorSettingsDrawer } from "@/feature/admin-post/components/editor/PostEditorSettingsDrawer"
+import { PostEditorShell } from "@/feature/admin-post/components/editor/PostEditorShell"
+import { PostEditorWritePane } from "@/feature/admin-post/components/editor/PostEditorWritePane"
+import { usePostEditor } from "@/feature/admin-post/hooks/usePostEditor"
 import type { AdminPostDetail } from "@/shared/model/admin-post.types"
 
 type PostEditorProps = {

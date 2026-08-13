@@ -1,8 +1,8 @@
 "use client"
 
-import { AdminPostListPagination } from "@/feature/admin-post-list/components/AdminPostListPagination"
-import { AdminPostTable } from "@/feature/admin-post-list/components/AdminPostTable"
-import { useAdminPostListContent } from "@/feature/admin-post-list/hooks/useAdminPostListContent"
+import { AdminPostListPagination } from "@/feature/admin-post/components/list/AdminPostListPagination"
+import { AdminPostTable } from "@/feature/admin-post/components/list/AdminPostTable"
+import { useAdminPostListContent } from "@/feature/admin-post/hooks/useAdminPostListContent"
 
 export function AdminPostListContent() {
     const { data, isFetching, setPage } = useAdminPostListContent()

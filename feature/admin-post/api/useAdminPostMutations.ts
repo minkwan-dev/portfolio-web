@@ -8,7 +8,7 @@ import {
     updateAdminPost,
 } from "@/shared/api/adminPostApi"
 import type { SavePostInput } from "@/shared/model/admin-post.types"
-import { adminPostQueryKeys } from "@/shared/api/adminPostQueryKeys"
+import { adminPostQueryKeys } from "@/feature/admin-post/api/adminPostQueryKeys"
 import { postQueryKeys } from "@/shared/api/postQueryKeys"
 
 type DeleteAdminPostMutationOptions = {

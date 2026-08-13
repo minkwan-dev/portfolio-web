@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useAdminPostListQuery } from "@/feature/admin-post-list/api/useAdminPostListQuery"
+import { useAdminPostListQuery } from "@/feature/admin-post/api/useAdminPostListQuery"
 
 export function useAdminPostListContent() {
     const [page, setPage] = useState(1)

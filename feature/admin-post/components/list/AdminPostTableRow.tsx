@@ -1,5 +1,5 @@
-import { AdminPostRowActions } from "@/feature/admin-post-list/components/AdminPostRowActions"
-import { AdminPostStatusDot } from "@/feature/admin-post-list/components/AdminPostStatusDot"
+import { AdminPostRowActions } from "@/feature/admin-post/components/list/AdminPostRowActions"
+import { AdminPostStatusDot } from "@/feature/admin-post/components/list/AdminPostStatusDot"
 import type { AdminPostListItem } from "@/shared/model/admin-post.types"
 
 type AdminPostTableRowProps = {

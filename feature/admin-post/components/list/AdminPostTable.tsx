@@ -1,4 +1,4 @@
-import { AdminPostTableRow } from "@/feature/admin-post-list/components/AdminPostTableRow"
+import { AdminPostTableRow } from "@/feature/admin-post/components/list/AdminPostTableRow"
 import type { AdminPostListItem } from "@/shared/model/admin-post.types"
 
 type AdminPostTableProps = {

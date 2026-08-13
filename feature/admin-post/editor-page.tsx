@@ -1,5 +1,5 @@
-import { EditPostEditor } from "@/feature/admin-post-editor/components/EditPostEditor"
-import { PostEditor } from "@/feature/admin-post-editor/components/PostEditor"
+import { EditPostEditor } from "@/feature/admin-post/components/editor/EditPostEditor"
+import { PostEditor } from "@/feature/admin-post/components/editor/PostEditor"
 
 type AdminPostEditorPageProps = {
     postId?: number

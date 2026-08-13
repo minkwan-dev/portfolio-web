@@ -1,8 +1,8 @@
 "use client"
 
-import { AdminPostDeleteModal } from "@/feature/admin-post-list/components/AdminPostDeleteModal"
-import { AdminPostRowActionButtons } from "@/feature/admin-post-list/components/AdminPostRowActionButtons"
-import { useAdminPostRowActions } from "@/feature/admin-post-list/hooks/useAdminPostRowActions"
+import { AdminPostDeleteModal } from "@/feature/admin-post/components/list/AdminPostDeleteModal"
+import { AdminPostRowActionButtons } from "@/feature/admin-post/components/list/AdminPostRowActionButtons"
+import { useAdminPostRowActions } from "@/feature/admin-post/hooks/useAdminPostRowActions"
 import type { AdminPostListItem } from "@/shared/model/admin-post.types"
 
 type AdminPostRowActionsProps = {

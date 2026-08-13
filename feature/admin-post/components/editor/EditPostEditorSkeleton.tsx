@@ -1,4 +1,4 @@
-import { PostEditorShell } from "@/feature/admin-post-editor/components/PostEditorShell"
+import { PostEditorShell } from "@/feature/admin-post/components/editor/PostEditorShell"
 
 export function EditPostEditorSkeleton() {
     return (

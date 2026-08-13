@@ -3,7 +3,7 @@ import type {
     PostEditorFormValues,
     SavePostInput,
 } from "@/shared/model/admin-post.types"
-import { generateDraftSlug } from "@/shared/utils/generate-draft-slug"
+import { generateDraftSlug } from "@/feature/admin-post/utils/generate-draft-slug"
 
 const EMPTY_FORM: PostEditorFormValues = {
     title: "",
@@ -54,7 +54,7 @@ export function toSavePostInput(values: PostEditorFormValues, isTemp: boolean): 
     const trimmedSlug = values.urlSlug.trim()
 
     return {
-        title: trimmedTitle || (isTemp ? "제목 없음" : ""),
+        title: trimmedTitle || (isTemp ? "?? ??" : ""),
         urlSlug: trimmedSlug || (isTemp ? generateDraftSlug(trimmedTitle) : ""),
         shortDescription: values.shortDescription.trim() || null,
         thumbnail: values.thumbnail.trim() || null,

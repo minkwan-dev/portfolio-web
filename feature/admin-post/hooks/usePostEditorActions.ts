@@ -5,10 +5,10 @@ import {
     useCreateAdminPostMutation,
     useDeleteAdminPostMutation,
     useUpdateAdminPostMutation,
-} from "@/feature/admin-post-editor/api/useAdminPostMutations"
-import type { PostEditorModals } from "@/feature/admin-post-editor/hooks/usePostEditorModals"
-import { toSavePostInput } from "@/feature/admin-post-editor/utils/admin-post.mapper"
-import { validateForPublish } from "@/feature/admin-post-editor/utils/validate-for-publish"
+} from "@/feature/admin-post/api/useAdminPostMutations"
+import type { PostEditorModals } from "@/feature/admin-post/hooks/usePostEditorModals"
+import { toSavePostInput } from "@/feature/admin-post/utils/admin-post.mapper"
+import { validateForPublish } from "@/feature/admin-post/utils/validate-for-publish"
 import type { AdminPostDetail, PostEditorFormValues } from "@/shared/model/admin-post.types"
 import { useToast } from "@/shared/providers/ToastProvider"
 
@@ -28,7 +28,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
         createMutation.isPending || updateMutation.isPending || deleteMutation.isPending
 
     const handleMutationError = useCallback(() => {
-        showToast({ message: "요청을 처리하지 못했어요. 다시 시도해 주세요.", variant: "error" })
+        showToast({ message: "??? ???? ????. ?? ??? ???.", variant: "error" })
     }, [showToast])
 
     const savePost = useCallback(
@@ -59,7 +59,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
         if (isPending) return
 
         savePost(true, () => {
-            showToast({ message: "포스트가 임시저장되었습니다." })
+            showToast({ message: "???? ?????????." })
         })
     }, [isPending, savePost, showToast])
 
@@ -75,7 +75,7 @@ export function usePostEditorActions({ post, values, modals }: UsePostEditorActi
 
     const publish = useCallback(() => {
         savePost(false, () => {
-            showToast({ message: "글이 출간되었습니다." })
+            showToast({ message: "?? ???????." })
             modals.closePublishModal()
         })
     }, [modals, savePost, showToast])

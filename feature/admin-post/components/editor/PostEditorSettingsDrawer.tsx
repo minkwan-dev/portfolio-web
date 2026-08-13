@@ -1,6 +1,6 @@
 "use client"
 
-import { PostEditorSettingsDeleteButton } from "@/feature/admin-post-editor/components/PostEditorSettingsDeleteButton"
+import { PostEditorSettingsDeleteButton } from "@/feature/admin-post/components/editor/PostEditorSettingsDeleteButton"
 import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorFieldUpdater = <K extends keyof PostEditorFormValues>(
@@ -31,19 +31,19 @@ export function PostEditorSettingsDrawer({
         <div className="fixed inset-0 z-50 flex justify-end bg-black/20">
             <button
                 type="button"
-                aria-label="설정 닫기"
+                aria-label="?? ??"
                 className="flex-1"
                 onClick={onClose}
             />
             <aside className="flex h-full w-full max-w-md flex-col bg-white shadow-xl">
                 <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
-                    <h2 className="text-sm font-semibold">글 설정</h2>
+                    <h2 className="text-sm font-semibold">? ??</h2>
                     <button
                         type="button"
                         onClick={onClose}
                         className="text-sm text-gray-500 hover:text-black"
                     >
-                        닫기
+                        ??
                     </button>
                 </div>
 
@@ -57,13 +57,13 @@ export function PostEditorSettingsDrawer({
                     <input
                         value={values.shortDescription}
                         onChange={(e) => updateField("shortDescription", e.target.value)}
-                        placeholder="짧은 설명"
+                        placeholder="?? ??"
                         className={SETTINGS_INPUT_CLASS}
                     />
                     <input
                         value={values.thumbnail}
                         onChange={(e) => updateField("thumbnail", e.target.value)}
-                        placeholder="썸네일 URL"
+                        placeholder="??? URL"
                         className={SETTINGS_INPUT_CLASS}
                     />
                     <input
@@ -80,12 +80,12 @@ export function PostEditorSettingsDrawer({
                                 checked={values.isMain}
                                 onChange={(e) => updateField("isMain", e.target.checked)}
                             />
-                            메인 노출
+                            ?? ??
                         </label>
                         <input
                             value={values.mainOrder}
                             onChange={(e) => updateField("mainOrder", e.target.value)}
-                            placeholder="메인 순서"
+                            placeholder="?? ??"
                             className="w-28 rounded-xl border border-gray-200 px-3 py-2"
                         />
                     </div>

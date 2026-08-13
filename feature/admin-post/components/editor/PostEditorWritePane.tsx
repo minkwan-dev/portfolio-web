@@ -1,5 +1,5 @@
-import { PostEditorPrimaryFields } from "@/feature/admin-post-editor/components/PostEditorPrimaryFields"
-import { PostEditorWriteFooter } from "@/feature/admin-post-editor/components/PostEditorWriteFooter"
+import { PostEditorPrimaryFields } from "@/feature/admin-post/components/editor/PostEditorPrimaryFields"
+import { PostEditorWriteFooter } from "@/feature/admin-post/components/editor/PostEditorWriteFooter"
 import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorWritePaneProps = {

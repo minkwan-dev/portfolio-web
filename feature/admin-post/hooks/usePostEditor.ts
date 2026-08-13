@@ -1,9 +1,9 @@
 "use client"
 
-import { usePostEditorActions } from "@/feature/admin-post-editor/hooks/usePostEditorActions"
-import { usePostEditorForm } from "@/feature/admin-post-editor/hooks/usePostEditorForm"
-import { usePostEditorModals } from "@/feature/admin-post-editor/hooks/usePostEditorModals"
-import { useSaveDraftShortcut } from "@/feature/admin-post-editor/hooks/useSaveDraftShortcut"
+import { usePostEditorActions } from "@/feature/admin-post/hooks/usePostEditorActions"
+import { usePostEditorForm } from "@/feature/admin-post/hooks/usePostEditorForm"
+import { usePostEditorModals } from "@/feature/admin-post/hooks/usePostEditorModals"
+import { useSaveDraftShortcut } from "@/feature/admin-post/hooks/useSaveDraftShortcut"
 import type { AdminPostDetail } from "@/shared/model/admin-post.types"
 
 export function usePostEditor(post?: AdminPostDetail) {
