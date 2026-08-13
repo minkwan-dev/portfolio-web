@@ -26,12 +26,12 @@ export function PostEditor({ post }: PostEditorProps) {
         publishModalOpen,
         openPublishModal,
         closePublishModal,
-        confirmPublish,
+        publish,
         deleteModalOpen,
         openDeleteModal,
         closeDeleteModal,
         confirmDelete,
-        handleSaveDraft,
+        saveDraft,
     } = usePostEditor(post)
 
     return (
@@ -42,7 +42,7 @@ export function PostEditor({ post }: PostEditorProps) {
                     updateField={updateField}
                     isPending={isPending}
                     onOpenSettings={openSettings}
-                    onSaveDraft={handleSaveDraft}
+                    onSaveDraft={saveDraft}
                     onPublish={openPublishModal}
                 />
 
@@ -60,7 +60,7 @@ export function PostEditor({ post }: PostEditorProps) {
             <PostEditorPublishModal
                 open={publishModalOpen}
                 isPending={isPending}
-                onConfirm={confirmPublish}
+                onConfirm={publish}
                 onClose={closePublishModal}
             />
 
