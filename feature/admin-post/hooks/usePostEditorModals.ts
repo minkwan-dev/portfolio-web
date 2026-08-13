@@ -3,14 +3,10 @@
 import { useState } from "react"
 
 export function usePostEditorModals() {
-    const [settingsOpen, setSettingsOpen] = useState(false)
     const [publishModalOpen, setPublishModalOpen] = useState(false)
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
 
     return {
-        settingsOpen,
-        openSettings: () => setSettingsOpen(true),
-        closeSettings: () => setSettingsOpen(false),
         publishModalOpen,
         openPublishModal: () => setPublishModalOpen(true),
         closePublishModal: () => setPublishModalOpen(false),
@@ -19,7 +15,6 @@ export function usePostEditorModals() {
         closeDeleteModal: () => setDeleteModalOpen(false),
         closeAfterDelete: () => {
             setDeleteModalOpen(false)
-            setSettingsOpen(false)
         },
     }
 }
