@@ -2,12 +2,15 @@ import { PostEditorPreview } from "@/feature/admin-post/components/editor/PostEd
 import type { PostEditorFormValues } from "@/shared/model/admin-post.types"
 
 type PostEditorPreviewPaneProps = {
+    className?: string
     values: PostEditorFormValues
 }
 
-export function PostEditorPreviewPane({ values }: PostEditorPreviewPaneProps) {
+export function PostEditorPreviewPane({ className, values }: PostEditorPreviewPaneProps) {
     return (
-        <div className="flex min-h-[24rem] min-w-0 flex-1 flex-col overflow-hidden bg-gray-50 lg:min-h-0">
+        <div
+            className={`min-h-[50dvh] min-w-0 flex-1 flex-col overflow-hidden bg-gray-50 lg:min-h-0 ${className ?? "flex"}`}
+        >
             <PostEditorPreview values={values} />
         </div>
     )

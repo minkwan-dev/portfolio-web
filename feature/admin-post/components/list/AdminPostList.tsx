@@ -8,7 +8,7 @@ export function AdminPostList() {
     return (
         <AsyncBoundary
             fallback={<AdminPostListSkeleton />}
-            errorTitle="어드뿀 글 목록을 불러오지 못했어요"
+            errorTitle="어드민 글 목록을 불러오지 못했어요"
         >
             <AdminPostListContent />
         </AsyncBoundary>
