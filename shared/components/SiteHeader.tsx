@@ -1,23 +1,15 @@
 import Link from "next/link"
 
-const publicNavItems = [
+const navItems = [
     { key: "home" as const, label: "home", href: "/" },
     { key: "blog" as const, label: "blog", href: "/blog" },
 ]
 
-const adminNavItems = [
-    { key: "posts" as const, label: "글관리", href: "/admin/posts" },
-    { key: "site" as const, label: "사이트로", href: "/" },
-]
+type SiteHeaderProps = {
+    active: "home" | "blog"
+}
 
-type SiteHeaderProps =
-    | { variant?: "public"; active: "home" | "blog" }
-    | { variant: "admin"; active: "posts" }
-
-export function SiteHeader(props: SiteHeaderProps) {
-    const variant = props.variant ?? "public"
-    const navItems = variant === "admin" ? adminNavItems : publicNavItems
-
+export function SiteHeader({ active }: SiteHeaderProps) {
     return (
         <>
             <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-gray-300/70 bg-white/75 backdrop-blur-md">
@@ -31,7 +23,7 @@ export function SiteHeader(props: SiteHeaderProps) {
 
                     <nav className="flex items-center gap-1.5">
                         {navItems.map(({ key, label, href }) => {
-                            const isActive = props.active === key
+                            const isActive = active === key
 
                             return (
                                 <Link
